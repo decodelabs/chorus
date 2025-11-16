@@ -1,0 +1,27 @@
+{
+    "commands": {
+        "generate-package-spec": {
+            "description": "Generate docs/meta/spec.md for a Decode Labs package (sibling repo to Chorus).",
+            "model": "gpt-5.1",
+            "cd": "../${packageName}",
+            "input_files": [
+                "composer.json",
+                "README.md",
+                "src/"
+            ],
+            "include_file_listing": true,
+            "output_path": "docs/meta/spec.md",
+            "user_input": [
+                {
+                    "name": "packageName",
+                    "description": "The name of the sibling package repo (e.g. remnant, lucid, exceptional)."
+                },
+                {
+                    "name": "metadata",
+                    "description": "Paste the packages.json entry for this package from Chorus (config/packages.json)."
+                }
+            ],
+            "instructions": "You are generating the file `docs/meta/spec.md` for the Decode Labs PHP package `${packageName}`.\n\nHere is the metadata for this package from Chorus `config/packages.json`:\n\n```json\n${metadata}\n```\n\nYour job is to produce a **complete, accurate package specification** following the Decode Labs spec template. Describe ONLY what is actually implemented in this repository. Do NOT invent APIs, classes, behaviours, or configuration options that do not exist.\n\nBefore writing the spec:\n\n1. Read:\n   - `composer.json`\n   - `README.md`\n   - The `src/` folder (at least top-level namespaces and key classes)\n\n2. Use the metadata (cluster, language, milestone, role, quality) as context, but let the **code** be the ultimate source of truth.\n\n3. Use the **official spec template structure** exactly:\n\n   - Overview\n     - Purpose\n     - Non-Goals\n   - Role in the Ecosystem\n     - Cluster & Positioning\n     - Usage Contexts\n   - Public Surface\n     - Key Types\n     - Main Entry Points\n   - Dependencies\n     - Decode Labs\n     - External\n   - Behaviour & Contracts\n     - Invariants\n     - Input & Output Contracts\n   - Error Handling\n   - Configuration & Extensibility\n   - Interactions with Other Packages\n   - Usage Examples\n   - Implementation Notes (for Contributors)\n   - Testing & Quality\n   - Roadmap & Future Ideas\n   - References\n\nFOLLOW THIS ORGANISATION EXACTLY. Do not rearrange headings.\n\nGuidelines & rules:\n\n- **Do not guess**. If something is not present in the code, do not describe it.\n- If the README contradicts the code, prefer the code.\n- If unsure about behaviour or design rationale, add a comment like: `<!-- TODO: clarify X -->`\n\n- Do NOT explicitly state a PHP version requirement. Instead write: \"See `composer.json` for supported PHP versions.\"\n\n- When describing quality scores:\n  - Either use the EXACT values from the metadata JSON above,\n  - Or describe them qualitatively (e.g. “Tracked centrally in Chorus”).\n  Never invent numbers.\n\n- For optional integrations (like Monarch, Genesis, etc.):\n  - Do NOT describe them as hard dependencies.\n  - Use phrasing such as: “This package detects X at runtime (if installed) and uses it for Y.”\n\n- When listing public types:\n  - Only include real classes/interfaces/traits in `src/`.\n  - Summaries must reflect their real purpose.\n  - Do NOT document internal/private helpers.\n\n- When writing examples:\n  - Use real APIs from this package.\n  - Prefer minimal but idiomatic examples.\n  - Follow Decode Labs conventions (method names as verbs, modern PHP features, static factories when present).\n\n- When describing invariants:\n  - Only include invariants that demonstrably exist in the code.\n\nOutput:\n\n- The full `docs/meta/spec.md` file in Markdown.\n- The top block must match EXACTLY the following format (substituting real metadata values):\n\n  ```markdown\n  # {PackageName} — Package Specification\n\n  > **Cluster:** `{cluster}`\n  > **Language:** `{language}`\n  > **Milestone:** `{milestone}`\n  > **Repo:** `https://github.com/decodelabs/{repo}`\n  > **Role:** {short description}\n  ```\n\nDo not include anything else before this header.\n\nAfter reading the repo and metadata, produce or update the completed `docs/meta/spec.md` file."
+        }
+    }
+}

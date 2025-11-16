@@ -124,7 +124,7 @@ Before writing the spec:
    - `README.md`
    - The `src/` folder (at least top-level namespaces and key classes)
 
-2. I will give you this package’s metadata from Chorus `config/packages.json`, including:
+2. You should look up the package’s metadata from Chorus `config/packages.json`, including:
    - `cluster`
    - `language`
    - `milestone`
