@@ -87,6 +87,38 @@ final class ChorusPackageUpdater
                 $rowNorm['v1'] = $this->coerceV1NullableBool($rowNorm['v1']);
             }
 
+            // Expand dependencies to full package names "decodelabs/<name>"
+            if (isset($rowNorm['dependencies']) && is_array($rowNorm['dependencies'])) {
+                $rowNorm['dependencies'] = array_values(array_map(
+                    static function (string $dep): string {
+                        return str_starts_with($dep, 'decodelabs/') ? $dep : ('decodelabs/' . $dep);
+                    },
+                    $rowNorm['dependencies'],
+                ));
+            }
+
+            // Group score fields into scores object
+            $scores = [];
+            if (array_key_exists('code', $rowNorm)) {
+                $scores['code'] = (float)$rowNorm['code'];
+                unset($rowNorm['code']);
+            }
+            if (array_key_exists('readme', $rowNorm)) {
+                $scores['readme'] = (float)$rowNorm['readme'];
+                unset($rowNorm['readme']);
+            }
+            if (array_key_exists('refDocs', $rowNorm)) {
+                $scores['refDocs'] = (float)$rowNorm['refDocs'];
+                unset($rowNorm['refDocs']);
+            }
+            if (array_key_exists('tests', $rowNorm)) {
+                $scores['tests'] = (float)$rowNorm['tests'];
+                unset($rowNorm['tests']);
+            }
+            if (!empty($scores)) {
+                $rowNorm['scores'] = $scores;
+            }
+
             // Determine GitHub key and location
             $language = isset($rowNorm['language']) ? strtolower(trim((string)$rowNorm['language'])) : '';
             [$repoKeyName, $exists] = $this->determineRepoKeyName(
