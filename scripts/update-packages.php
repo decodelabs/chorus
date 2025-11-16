@@ -46,14 +46,13 @@ final class ChorusPackageUpdater
         }
 
         $rows = $this->parseCsv($csv);
-        $updated = [];
+        $outputMap = [];
 
         foreach ($rows as $row) {
             $rowNorm = $this->normalizeRowKeys($row);
             $name = isset($rowNorm['name']) ? trim((string)$rowNorm['name']) : '';
 
             if ($name === '') {
-                $updated[] = $rowNorm;
                 continue;
             }
 
@@ -88,10 +87,20 @@ final class ChorusPackageUpdater
                 $rowNorm['v1'] = $this->coerceV1NullableBool($rowNorm['v1']);
             }
 
-            $updated[] = $rowNorm;
+            // Determine GitHub key and location
+            $language = isset($rowNorm['language']) ? strtolower(trim((string)$rowNorm['language'])) : '';
+            [$repoKeyName, $exists] = $this->determineRepoKeyName(
+                $repoPath,
+                $slug,
+                $language,
+            );
+            $githubFullName = 'decodelabs/' . $repoKeyName;
+            $rowNorm['location'] = $exists ? ('https://github.com/' . $githubFullName) : null;
+
+            $outputMap[$githubFullName] = $rowNorm;
         }
 
-        $jsonOut = json_encode($updated, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        $jsonOut = json_encode($outputMap, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
         if (!is_string($jsonOut)) {
             throw new RuntimeException('Failed to encode JSON output.');
         }
@@ -364,6 +373,88 @@ final class ChorusPackageUpdater
         $deps = array_values(array_unique($deps));
         sort($deps, SORT_NATURAL | SORT_FLAG_CASE);
         return $deps;
+    }
+
+    /**
+     * Determine repo key name (the part after decodelabs/) and whether the package exists locally.
+     *
+     * @return array{0:string,1:bool}
+     */
+    private function determineRepoKeyName(
+        string $repoPath,
+        string $slug,
+        string $language,
+    ): array {
+        $exists = is_dir($repoPath);
+
+        if ($language === 'ts' || $language === 'typescript' || $language === 'node' || $language === 'javascript' || $language === 'js') {
+            $pkg = $this->readPackageNameFromPackageJson($repoPath);
+            if ($pkg !== null) {
+                return [$pkg, $exists];
+            }
+        }
+
+        $comp = $this->readPackageNameFromComposer($repoPath);
+        if ($comp !== null) {
+            return [$comp, $exists];
+        }
+
+        if ($language === '') {
+            $pkg = $this->readPackageNameFromPackageJson($repoPath);
+            if ($pkg !== null) {
+                return [$pkg, $exists];
+            }
+        }
+
+        return [$slug, $exists];
+    }
+
+    private function readPackageNameFromComposer(
+        string $repoPath,
+    ): ?string {
+        $composerPath = $repoPath . '/composer.json';
+        if (!is_file($composerPath)) {
+            return null;
+        }
+        $json = file_get_contents($composerPath);
+        if (!is_string($json) || $json === '') {
+            return null;
+        }
+        $data = json_decode($json, true);
+        if (!is_array($data) || !isset($data['name']) || !is_string($data['name'])) {
+            return null;
+        }
+        $name = trim($data['name']);
+        if (str_starts_with($name, 'decodelabs/')) {
+            $parts = explode('/', $name, 2);
+            return isset($parts[1]) ? $parts[1] : null;
+        }
+        return null;
+    }
+
+    private function readPackageNameFromPackageJson(
+        string $repoPath,
+    ): ?string {
+        $pkgPath = $repoPath . '/package.json';
+        if (!is_file($pkgPath)) {
+            return null;
+        }
+        $json = file_get_contents($pkgPath);
+        if (!is_string($json) || $json === '') {
+            return null;
+        }
+        $data = json_decode($json, true);
+        if (!is_array($data) || !isset($data['name']) || !is_string($data['name'])) {
+            return null;
+        }
+        $name = trim($data['name']);
+        if (str_starts_with($name, '@decodelabs/')) {
+            return substr($name, strlen('@decodelabs/'));
+        }
+        if (preg_match('/^decodelabs[-\\/](.+)$/', $name, $m) === 1) {
+            return $m[1];
+        }
+        return $name !== '' ? $name : null;
     }
 }
 
