@@ -1,204 +1,221 @@
 {
     "decodelabs/remnant": {
         "name": "Remnant",
-        "language": "PHP",
+        "description": "Easier stack traces",
+        "language": "php",
         "role": "Stack traces",
         "milestone": "m1",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 5,
             "readme": 5,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": "https://github.com/decodelabs/remnant"
+        "dependencies": [],
+        "location": "https://github.com/decodelabs/remnant",
+        "notes": null
     },
     "decodelabs/wellspring": {
         "name": "Wellspring",
-        "language": "PHP",
+        "description": "PHP autoload management tools",
+        "language": "php",
         "role": "Autoloader manager",
         "milestone": "m1",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 5,
             "readme": 5,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": "https://github.com/decodelabs/wellspring"
+        "dependencies": [],
+        "location": "https://github.com/decodelabs/wellspring",
+        "notes": null
     },
     "decodelabs/exceptional": {
         "name": "Exceptional",
-        "language": "PHP",
+        "description": "Better Exceptions for PHP",
+        "language": "php",
         "role": "Enhanced exceptions",
         "milestone": "m1",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/remnant",
             "decodelabs/wellspring"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/exceptional"
+        "location": "https://github.com/decodelabs/exceptional",
+        "notes": null
     },
     "decodelabs/coercion": {
         "name": "Coercion",
-        "language": "PHP",
+        "description": "Simple tools for managing PHP types",
+        "language": "php",
         "role": "Type casting",
         "milestone": "m1",
-        "v1": null,
-        "dependencies": [
-            "decodelabs/exceptional"
-        ],
         "scores": {
             "code": 4.5,
             "readme": 3,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": "https://github.com/decodelabs/coercion"
-    },
-    "decodelabs/kingdom": {
-        "name": "Kingdom",
-        "language": "PHP",
-        "role": "App containment",
-        "milestone": "m1",
-        "v1": null,
         "dependencies": [
             "decodelabs/exceptional"
         ],
+        "location": "https://github.com/decodelabs/coercion",
+        "notes": null
+    },
+    "decodelabs/kingdom": {
+        "name": "Kingdom",
+        "description": "Service container and management system",
+        "language": "php",
+        "role": "App containment",
+        "milestone": "m1",
         "scores": {
             "code": 4,
             "readme": 3.5,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": "https://github.com/decodelabs/kingdom"
+        "dependencies": [
+            "decodelabs/exceptional"
+        ],
+        "location": "https://github.com/decodelabs/kingdom",
+        "notes": null
     },
     "decodelabs/enumerable": {
         "name": "Enumerable",
-        "language": "PHP",
+        "description": "Helper traits for enums",
+        "language": "php",
         "role": "Enum traits",
         "milestone": "m1",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/coercion",
             "decodelabs/exceptional"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/enumerable"
+        "location": "https://github.com/decodelabs/enumerable",
+        "notes": null
     },
     "decodelabs/nuance": {
         "name": "Nuance",
-        "language": "PHP",
+        "description": "Type inspection tools",
+        "language": "php",
         "role": "Dump inspector",
         "milestone": "m1",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 1,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/coercion",
             "decodelabs/enumerable",
             "decodelabs/remnant"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 1,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/nuance"
+        "location": "https://github.com/decodelabs/nuance",
+        "notes": null
     },
     "decodelabs/monarch": {
         "name": "Monarch",
-        "language": "PHP",
+        "description": "A single shared source of truth for your PHP apps",
+        "language": "php",
         "role": "Single source of truth",
         "milestone": "m1",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/enumerable",
             "decodelabs/exceptional",
             "decodelabs/kingdom"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/monarch"
+        "location": "https://github.com/decodelabs/monarch",
+        "notes": null
     },
     "decodelabs/slingshot": {
         "name": "Slingshot",
-        "language": "PHP",
+        "description": "Unified dependency injection invoker",
+        "language": "php",
         "role": "Dependency injection invoker",
         "milestone": "m1",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/exceptional",
             "decodelabs/kingdom",
             "decodelabs/monarch"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/slingshot"
+        "location": "https://github.com/decodelabs/slingshot",
+        "notes": null
     },
     "decodelabs/archetype": {
         "name": "Archetype",
-        "language": "PHP",
+        "description": "Simple named library loader",
+        "language": "php",
         "role": "Class resolution",
         "milestone": "m1",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/exceptional",
             "decodelabs/kingdom",
             "decodelabs/nuance"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/archetype"
+        "location": "https://github.com/decodelabs/archetype",
+        "notes": null
     },
     "decodelabs/deliverance": {
         "name": "Deliverance",
-        "language": "PHP",
+        "description": "Shared data transfer interfaces",
+        "language": "php",
         "role": "Data transfer interfaces",
         "milestone": "m1",
-        "v1": null,
-        "dependencies": [
-            "decodelabs/exceptional"
-        ],
         "scores": {
             "code": 4.5,
             "readme": 3,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": "https://github.com/decodelabs/deliverance"
+        "dependencies": [
+            "decodelabs/exceptional"
+        ],
+        "location": "https://github.com/decodelabs/deliverance",
+        "notes": null
     },
     "decodelabs/atlas": {
         "name": "Atlas",
-        "language": "PHP",
+        "description": "Easy filesystem and io functions",
+        "language": "php",
         "role": "Filesystem",
         "milestone": "m1",
-        "v1": null,
+        "scores": {
+            "code": 3.5,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/coercion",
             "decodelabs/deliverance",
@@ -206,75 +223,79 @@
             "decodelabs/exceptional",
             "decodelabs/nuance"
         ],
-        "scores": {
-            "code": 3.5,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/atlas"
+        "location": "https://github.com/decodelabs/atlas",
+        "notes": null
     },
     "decodelabs/phpstan-decodelabs": {
         "name": "PHPStan DecodeLabs",
-        "language": "PHP",
+        "description": "DecodeLabs PHPStan analysis extension",
+        "language": "php",
         "role": "PHPStan helpers",
         "milestone": "m1",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 3,
             "readme": 3,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": "https://github.com/decodelabs/phpstan-decodelabs"
+        "dependencies": [],
+        "location": "https://github.com/decodelabs/phpstan-decodelabs",
+        "notes": null
     },
     "decodelabs/pandora": {
         "name": "Pandora",
-        "language": "PHP",
+        "description": "Potent PSR-11 depdency injection container",
+        "language": "php",
         "role": "PSR container",
         "milestone": "m2",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/exceptional",
             "decodelabs/kingdom",
             "decodelabs/slingshot"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/pandora"
+        "location": "https://github.com/decodelabs/pandora",
+        "notes": null
     },
     "decodelabs/terminus": {
         "name": "Terminus",
-        "language": "PHP",
+        "description": "Simple CLI interactions",
+        "language": "php",
         "role": "CLI IO",
         "milestone": "m2",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 4,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/coercion",
             "decodelabs/deliverance",
             "decodelabs/exceptional",
             "decodelabs/kingdom"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 4,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/terminus"
+        "location": "https://github.com/decodelabs/terminus",
+        "notes": null
     },
     "decodelabs/commandment": {
         "name": "Commandment",
-        "language": "PHP",
+        "description": "Console command interface",
+        "language": "php",
         "role": "CLI dispatcher",
         "milestone": "m2",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3.5,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/coercion",
@@ -282,20 +303,21 @@
             "decodelabs/nuance",
             "decodelabs/slingshot"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3.5,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/commandment"
+        "location": "https://github.com/decodelabs/commandment",
+        "notes": null
     },
     "decodelabs/genesis": {
         "name": "Genesis",
-        "language": "PHP",
+        "description": "Universal bootstrapping framework",
+        "language": "php",
         "role": "Bootstrapping",
         "milestone": "m2",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/atlas",
@@ -306,38 +328,40 @@
             "decodelabs/systemic",
             "decodelabs/terminus"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/genesis"
+        "location": "https://github.com/decodelabs/genesis",
+        "notes": null
     },
     "decodelabs/enlighten": {
         "name": "Enlighten",
-        "language": "PHP",
+        "description": "PHP source highlighter",
+        "language": "php",
         "role": "PHP source highlighting",
         "milestone": "m2",
-        "v1": null,
+        "scores": {
+            "code": 2.5,
+            "readme": 2.5,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/coercion",
             "decodelabs/exceptional"
         ],
-        "scores": {
-            "code": 2.5,
-            "readme": 2.5,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/enlighten"
+        "location": "https://github.com/decodelabs/enlighten",
+        "notes": null
     },
     "decodelabs/glitch": {
         "name": "Glitch",
-        "language": "PHP",
+        "description": "Better tools for when things go wrong",
+        "language": "php",
         "role": "Error handling",
         "milestone": "m2",
-        "v1": null,
+        "scores": {
+            "code": 3.5,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/coercion",
             "decodelabs/enlighten",
@@ -347,20 +371,21 @@
             "decodelabs/nuance",
             "decodelabs/remnant"
         ],
-        "scores": {
-            "code": 3.5,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/glitch"
+        "location": "https://github.com/decodelabs/glitch",
+        "notes": null
     },
     "decodelabs/clip": {
         "name": "Clip",
-        "language": "PHP",
+        "description": "CLI kernel integration for DecodeLabs Genesis",
+        "language": "php",
         "role": "Cli Runtime",
         "milestone": "m2",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/atlas",
@@ -375,94 +400,99 @@
             "decodelabs/pandora",
             "decodelabs/terminus"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/clip"
+        "location": "https://github.com/decodelabs/clip",
+        "notes": null
     },
     "decodelabs/fluidity": {
         "name": "Fluidity",
-        "language": "PHP",
+        "description": "Tools for creating fluent interfaces",
+        "language": "php",
         "role": "Fluid interfaces",
         "milestone": "m2",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 3,
             "readme": 3,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": "https://github.com/decodelabs/fluidity"
+        "dependencies": [],
+        "location": "https://github.com/decodelabs/fluidity",
+        "notes": null
     },
     "decodelabs/lucid": {
         "name": "Lucid",
-        "language": "PHP",
+        "description": "Flexible and expansive sanitisation and validation framework",
+        "language": "php",
         "role": "Value sanitisation",
         "milestone": "m2",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/coercion",
             "decodelabs/exceptional",
             "decodelabs/kingdom",
             "decodelabs/slingshot"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/lucid"
+        "location": "https://github.com/decodelabs/lucid",
+        "notes": null
     },
     "decodelabs/collections": {
         "name": "Collections",
-        "language": "PHP",
+        "description": "Reusable collection components",
+        "language": "php",
         "role": "Data structures",
         "milestone": "m2",
-        "v1": null,
+        "scores": {
+            "code": 3,
+            "readme": 1,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/coercion",
             "decodelabs/exceptional",
             "decodelabs/fluidity",
             "decodelabs/lucid"
         ],
-        "scores": {
-            "code": 3,
-            "readme": 1,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/collections"
+        "location": "https://github.com/decodelabs/collections",
+        "notes": null
     },
     "decodelabs/eventful": {
         "name": "Eventful",
-        "language": "PHP",
+        "description": "Asynchronous IO event dispatcher",
+        "language": "php",
         "role": "IO event loop",
         "milestone": "m2",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/coercion",
             "decodelabs/deliverance",
             "decodelabs/exceptional"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/eventful"
+        "location": "https://github.com/decodelabs/eventful",
+        "notes": null
     },
     "decodelabs/systemic": {
         "name": "Systemic",
-        "language": "PHP",
+        "description": "Easy access to system and environment info",
+        "language": "php",
         "role": "Process management",
         "milestone": "m2",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/coercion",
             "decodelabs/deliverance",
@@ -472,58 +502,61 @@
             "decodelabs/kingdom",
             "decodelabs/nuance"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/systemic"
+        "location": "https://github.com/decodelabs/systemic",
+        "notes": null
     },
     "decodelabs/kairos": {
         "name": "Kairos",
-        "language": "PHP",
+        "description": "Time and date utilities",
+        "language": "php",
         "role": "Time and date utilities",
         "milestone": "m2",
-        "v1": null,
+        "scores": {
+            "code": 3,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/coercion",
             "decodelabs/exceptional",
             "decodelabs/nuance"
         ],
-        "scores": {
-            "code": 3,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/kairos"
+        "location": "https://github.com/decodelabs/kairos",
+        "notes": null
     },
     "decodelabs/compass": {
         "name": "Compass",
-        "language": "PHP",
+        "description": "Parse, inspect and test IP addresses",
+        "language": "php",
         "role": "IP tools",
         "milestone": "m3",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/exceptional",
             "decodelabs/fluidity",
             "decodelabs/nuance"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/compass"
+        "location": "https://github.com/decodelabs/compass",
+        "notes": null
     },
     "decodelabs/singularity": {
         "name": "Singularity",
-        "language": "PHP",
+        "description": "Consolidated URI parsing and resolving",
+        "language": "php",
         "role": "URL parsing",
         "milestone": "m3",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/collections",
@@ -533,39 +566,41 @@
             "decodelabs/monarch",
             "decodelabs/nuance"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/singularity"
+        "location": "https://github.com/decodelabs/singularity",
+        "notes": null
     },
     "decodelabs/cosmos": {
         "name": "Cosmos",
-        "language": "PHP",
+        "description": "Internationalisation made simple",
+        "language": "php",
         "role": "Internationalisation",
         "milestone": "m3",
-        "v1": null,
+        "scores": {
+            "code": 2,
+            "readme": 2,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/exceptional",
             "decodelabs/kairos",
             "decodelabs/nuance"
         ],
-        "scores": {
-            "code": 2,
-            "readme": 2,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/cosmos"
+        "location": "https://github.com/decodelabs/cosmos",
+        "notes": null
     },
     "decodelabs/dictum": {
         "name": "Dictum",
-        "language": "PHP",
+        "description": "Text formatting tools",
+        "language": "php",
         "role": "Text formatting",
         "milestone": "m3",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/cosmos",
             "decodelabs/exceptional",
@@ -573,40 +608,42 @@
             "decodelabs/kingdom",
             "decodelabs/nuance"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/dictum"
+        "location": "https://github.com/decodelabs/dictum",
+        "notes": null
     },
     "decodelabs/elementary": {
         "name": "Elementary",
-        "language": "PHP",
+        "description": "Shared base markup handling library",
+        "language": "php",
         "role": "Markup base library",
         "milestone": "m3",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/coercion",
             "decodelabs/collections",
             "decodelabs/exceptional",
             "decodelabs/nuance"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/elementary"
+        "location": "https://github.com/decodelabs/elementary",
+        "notes": null
     },
     "decodelabs/tagged": {
         "name": "Tagged",
-        "language": "PHP",
+        "description": "PHP markup generation without the fuss",
+        "language": "php",
         "role": "HTML markup generation",
         "milestone": "m3",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/coercion",
@@ -618,20 +655,21 @@
             "decodelabs/monarch",
             "decodelabs/slingshot"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/tagged"
+        "location": "https://github.com/decodelabs/tagged",
+        "notes": null
     },
     "decodelabs/harvest": {
         "name": "Harvest",
-        "language": "PHP",
+        "description": "PSR-15 HTTP stack without the mess",
+        "language": "php",
         "role": "HTTP dispatcher",
         "milestone": "m3",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/coercion",
@@ -647,57 +685,60 @@
             "decodelabs/singularity",
             "decodelabs/slingshot"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/harvest"
+        "location": "https://github.com/decodelabs/harvest",
+        "notes": null
     },
     "decodelabs/guidance": {
         "name": "Guidance",
-        "language": "PHP",
+        "description": "Generalised UUID generation and parsing interface",
+        "language": "php",
         "role": "UUID generation",
         "milestone": "m3",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/coercion",
             "decodelabs/exceptional",
             "decodelabs/kingdom",
             "decodelabs/nuance"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/guidance"
+        "location": "https://github.com/decodelabs/guidance",
+        "notes": null
     },
     "decodelabs/hatch": {
         "name": "Hatch",
-        "language": "PHP",
+        "description": "Simple code generation tools",
+        "language": "php",
         "role": "Code generation tools",
         "milestone": "m3",
-        "v1": null,
-        "dependencies": [
-            "decodelabs/exceptional"
-        ],
         "scores": {
             "code": 2,
             "readme": 2,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": "https://github.com/decodelabs/hatch"
+        "dependencies": [
+            "decodelabs/exceptional"
+        ],
+        "location": "https://github.com/decodelabs/hatch",
+        "notes": null
     },
     "decodelabs/iota": {
         "name": "Iota",
-        "language": "PHP",
+        "description": "Discrete, dependable generated code repository",
+        "language": "php",
         "role": "Code cache repository",
         "milestone": "m3",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/atlas",
             "decodelabs/coercion",
@@ -706,20 +747,21 @@
             "decodelabs/kingdom",
             "decodelabs/monarch"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/iota"
+        "location": "https://github.com/decodelabs/iota",
+        "notes": null
     },
     "decodelabs/greenleaf": {
         "name": "Greenleaf",
-        "language": "PHP",
+        "description": "Super-fast directory based HTTP router",
+        "language": "php",
         "role": "HTTP router",
         "milestone": "m3",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 4,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/atlas",
@@ -734,20 +776,21 @@
             "decodelabs/singularity",
             "decodelabs/slingshot"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 4,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/greenleaf"
+        "location": "https://github.com/decodelabs/greenleaf",
+        "notes": null
     },
     "decodelabs/stash": {
         "name": "Stash",
-        "language": "PHP",
+        "description": "PSR6 / PSR16 cache handler",
+        "language": "php",
         "role": "Caching",
         "milestone": "m3",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/atlas",
@@ -757,20 +800,21 @@
             "decodelabs/kingdom",
             "decodelabs/monarch"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/stash"
+        "location": "https://github.com/decodelabs/stash",
+        "notes": null
     },
     "decodelabs/dovetail": {
         "name": "Dovetail",
-        "language": "PHP",
+        "description": "Comprehensive config solution",
+        "language": "php",
         "role": "Configs",
         "milestone": "m3",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/atlas",
@@ -783,20 +827,21 @@
             "decodelabs/lucid",
             "decodelabs/monarch"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/dovetail"
+        "location": "https://github.com/decodelabs/dovetail",
+        "notes": null
     },
     "decodelabs/fabric": {
         "name": "Fabric",
-        "language": "PHP",
+        "description": "Lightweight PHP framework implementation using DecodeLabs ecosystem",
+        "language": "php",
         "role": "Framework entry point",
         "milestone": "m3",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/clip",
@@ -814,20 +859,21 @@
             "decodelabs/pandora",
             "decodelabs/systemic"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/fabric"
+        "location": "https://github.com/decodelabs/fabric",
+        "notes": null
     },
     "decodelabs/supermodel": {
         "name": "Supermodel",
-        "language": "PHP",
+        "description": "General data model interfaces for a simpler life",
+        "language": "php",
         "role": "Data modelling",
         "milestone": "m3",
-        "v1": null,
+        "scores": {
+            "code": 3,
+            "readme": 1,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/coercion",
@@ -835,20 +881,21 @@
             "decodelabs/kingdom",
             "decodelabs/slingshot"
         ],
-        "scores": {
-            "code": 3,
-            "readme": 1,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/supermodel"
+        "location": "https://github.com/decodelabs/supermodel",
+        "notes": null
     },
     "decodelabs/chronicle": {
         "name": "Chronicle",
-        "language": "PHP",
+        "description": "Release notes generator",
+        "language": "php",
         "role": "Release manager",
         "milestone": "m4",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3.5,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/atlas",
             "decodelabs/dovetail",
@@ -858,20 +905,21 @@
             "decodelabs/stash",
             "decodelabs/systemic"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3.5,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/chronicle"
+        "location": "https://github.com/decodelabs/chronicle",
+        "notes": null
     },
     "decodelabs/integra": {
         "name": "Integra",
-        "language": "PHP",
+        "description": "Composer file inspector and front-end",
+        "language": "php",
         "role": "Composer integration tools",
         "milestone": "m4",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 4,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/atlas",
             "decodelabs/coercion",
@@ -882,40 +930,42 @@
             "decodelabs/monarch",
             "decodelabs/systemic"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 4,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/integra"
+        "location": "https://github.com/decodelabs/integra",
+        "notes": null
     },
     "decodelabs/overpass": {
         "name": "Overpass",
-        "language": "PHP",
+        "description": "Simple node.js bridge",
+        "language": "php",
         "role": "Node bridge",
         "milestone": "m4",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 4,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/atlas",
             "decodelabs/exceptional",
             "decodelabs/monarch",
             "decodelabs/systemic"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 4,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/overpass"
+        "location": "https://github.com/decodelabs/overpass",
+        "notes": null
     },
     "decodelabs/effigy": {
         "name": "Effigy",
-        "language": "PHP",
+        "description": "Universal CLI entry point",
+        "language": "php",
         "role": "CLI entry point",
         "milestone": "m4",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/atlas",
@@ -934,40 +984,42 @@
             "decodelabs/systemic",
             "decodelabs/terminus"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/effigy"
+        "location": "https://github.com/decodelabs/effigy",
+        "notes": null
     },
     "decodelabs/disciple": {
         "name": "Disciple",
-        "language": "PHP",
+        "description": "Take control of your users",
+        "language": "php",
         "role": "User data access",
         "milestone": "m4",
-        "v1": null,
+        "scores": {
+            "code": 3,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/compass",
             "decodelabs/exceptional",
             "decodelabs/kingdom",
             "decodelabs/monarch"
         ],
-        "scores": {
-            "code": 3,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/disciple"
+        "location": "https://github.com/decodelabs/disciple",
+        "notes": null
     },
     "decodelabs/horizon": {
         "name": "Horizon",
-        "language": "PHP",
+        "description": "Simple HTML view containers",
+        "language": "php",
         "role": "HTML document components",
         "milestone": "m4",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/coercion",
@@ -977,20 +1029,21 @@
             "decodelabs/slingshot",
             "decodelabs/tagged"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/horizon"
+        "location": "https://github.com/decodelabs/horizon",
+        "notes": null
     },
     "decodelabs/zest": {
         "name": "Zest",
-        "language": "PHP",
+        "description": "Vite front end dev environment integration",
+        "language": "php",
         "role": "Vite integration",
         "milestone": "m4",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/clip",
@@ -1007,35 +1060,37 @@
             "decodelabs/terminus",
             "decodelabs/typify"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/zest"
+        "location": "https://github.com/decodelabs/zest",
+        "notes": null
     },
     "decodelabs/vite-plugin-zest": {
         "name": "Zest vite plugin",
-        "language": "TS",
+        "description": null,
+        "language": "typescript",
         "role": "Vite config for Zest",
         "milestone": "m4",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 4,
             "readme": 3,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": "https://github.com/decodelabs/vite-plugin-zest"
+        "dependencies": [],
+        "location": "https://github.com/decodelabs/vite-plugin-zest",
+        "notes": null
     },
     "decodelabs/impulse": {
         "name": "Impulse",
-        "language": "PHP",
+        "description": "PSR-14 compatible event hook system",
+        "language": "php",
         "role": "Hook events",
         "milestone": "m4",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 1,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/exceptional",
@@ -1043,197 +1098,208 @@
             "decodelabs/monarch",
             "decodelabs/slingshot"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 1,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/impulse"
+        "location": "https://github.com/decodelabs/impulse",
+        "notes": null
     },
     "decodelabs/hydro": {
         "name": "Hydro",
-        "language": "PHP",
+        "description": "Simple PSR18 HTTP client wrapper around Guzzle",
+        "language": "php",
         "role": "HTTP client",
         "milestone": "m4",
-        "v1": null,
+        "scores": {
+            "code": 1.5,
+            "readme": 1,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/atlas",
             "decodelabs/coercion",
             "decodelabs/exceptional",
             "decodelabs/kingdom"
         ],
-        "scores": {
-            "code": 1.5,
-            "readme": 1,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/hydro"
+        "location": "https://github.com/decodelabs/hydro",
+        "notes": null
     },
     "decodelabs/typify": {
         "name": "Typify",
-        "language": "PHP",
+        "description": "Mime type detection tools",
+        "language": "php",
         "role": "Mime types",
         "milestone": "m4",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/exceptional",
             "decodelabs/kingdom"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/typify"
+        "location": "https://github.com/decodelabs/typify",
+        "notes": null
     },
     "decodelabs/cipher": {
         "name": "Cipher",
-        "language": "PHP",
+        "description": "Tools and systems to interact with JWTs",
+        "language": "php",
         "role": "JWT",
         "milestone": "m4",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/coercion",
             "decodelabs/nuance",
             "decodelabs/slingshot"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/cipher"
+        "location": "https://github.com/decodelabs/cipher",
+        "notes": null
     },
     "decodelabs/relay": {
         "name": "Relay",
-        "language": "PHP",
+        "description": "Mail tools",
+        "language": "php",
         "role": "Email",
         "milestone": "m4",
-        "v1": null,
-        "dependencies": [
-            "decodelabs/exceptional"
-        ],
         "scores": {
             "code": 2,
             "readme": 2,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": "https://github.com/decodelabs/relay"
+        "dependencies": [
+            "decodelabs/exceptional"
+        ],
+        "location": "https://github.com/decodelabs/relay",
+        "notes": null
     },
     "decodelabs/spectrum": {
         "name": "Spectrum",
-        "language": "PHP",
+        "description": "Bring colour to PHP",
+        "language": "php",
         "role": "Colour parsing",
         "milestone": "m4",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/coercion",
             "decodelabs/exceptional",
             "decodelabs/nuance"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/spectrum"
+        "location": "https://github.com/decodelabs/spectrum",
+        "notes": null
     },
     "decodelabs/vite-plugin-castaway": {
         "name": "Castaway vite plugin",
-        "language": "TS",
+        "description": null,
+        "language": "typescript",
         "role": "Front end asset splitting",
         "milestone": "m5",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 3,
             "readme": 3,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": "https://github.com/decodelabs/vite-plugin-castaway"
+        "dependencies": [],
+        "location": "https://github.com/decodelabs/vite-plugin-castaway",
+        "notes": null
     },
     "decodelabs/castaway": {
         "name": "Castaway",
-        "language": "PHP",
+        "description": "Front end component islands architecture",
+        "language": "php",
         "role": "Component SSR",
         "milestone": "m6",
-        "v1": null,
+        "scores": {
+            "code": 0.5,
+            "readme": 0.5,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/exceptional",
             "decodelabs/kingdom"
         ],
-        "scores": {
-            "code": 0.5,
-            "readme": 0.5,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/castaway"
+        "location": "https://github.com/decodelabs/castaway",
+        "notes": null
     },
     "decodelabs/fabric-start": {
         "name": "Fabric start",
-        "language": "PHP",
+        "description": null,
+        "language": "php",
         "role": "Fabric starter app",
         "milestone": "m5",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 0,
             "readme": 0,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": null
+        "dependencies": [],
+        "location": null,
+        "notes": null
     },
     "decodelabs/fabric-create": {
         "name": "Fabric create",
-        "language": "TS",
+        "description": null,
+        "language": "typescript",
         "role": "Fabric node starter script",
         "milestone": "m5",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 0,
             "readme": 0,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": null
+        "dependencies": [],
+        "location": null,
+        "notes": null
     },
     "decodelabs/sanctum": {
         "name": "Sanctum",
-        "language": "PHP",
+        "description": "Define and deploy Content Security Policies in your PHP application",
+        "language": "php",
         "role": "Content security policies",
         "milestone": "m5",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/exceptional",
             "decodelabs/monarch",
             "decodelabs/nuance"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/sanctum"
+        "location": "https://github.com/decodelabs/sanctum",
+        "notes": null
     },
     "decodelabs/scrutiny": {
         "name": "Scrutiny",
-        "language": "PHP",
+        "description": "Unified human check controls",
+        "language": "php",
         "role": "Captcha",
         "milestone": "m5",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/coercion",
@@ -1248,20 +1314,21 @@
             "decodelabs/slingshot",
             "decodelabs/tagged"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/scrutiny"
+        "location": "https://github.com/decodelabs/scrutiny",
+        "notes": null
     },
     "decodelabs/metamorph": {
         "name": "Metamorph",
-        "language": "PHP",
+        "description": "A flexible framework for content transformations",
+        "language": "php",
         "role": "Content transformation system",
         "milestone": "m5",
-        "v1": null,
+        "scores": {
+            "code": 3.5,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/coercion",
@@ -1269,74 +1336,78 @@
             "decodelabs/monarch",
             "decodelabs/tagged"
         ],
-        "scores": {
-            "code": 3.5,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/metamorph"
+        "location": "https://github.com/decodelabs/metamorph",
+        "notes": null
     },
     "decodelabs/referential": {
         "name": "Referential",
-        "language": "PHP",
+        "description": "A framework for finding, parsing, inspecting and formatting reference IDs",
+        "language": "php",
         "role": "Ref ID parsing",
         "milestone": "m5",
-        "v1": null,
-        "dependencies": [
-            "decodelabs/exceptional"
-        ],
         "scores": {
             "code": 3.5,
             "readme": 3,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": "https://github.com/decodelabs/referential"
+        "dependencies": [
+            "decodelabs/exceptional"
+        ],
+        "location": "https://github.com/decodelabs/referential",
+        "notes": null
     },
     "decodelabs/imprint": {
         "name": "Imprint",
-        "language": "PHP",
+        "description": "PDF conversion API interface",
+        "language": "php",
         "role": "HTML to PDF generator",
         "milestone": "m5",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 3.5,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/atlas",
             "decodelabs/exceptional",
             "decodelabs/hydro",
             "decodelabs/kingdom"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 3.5,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/imprint"
+        "location": "https://github.com/decodelabs/imprint",
+        "notes": null
     },
     "decodelabs/chirp": {
         "name": "Chirp",
-        "language": "PHP",
+        "description": "Tweet parser",
+        "language": "php",
         "role": "Tweet parser",
         "milestone": "m5",
-        "v1": null,
-        "dependencies": [
-            "decodelabs/tagged"
-        ],
         "scores": {
             "code": 2,
             "readme": 2,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": "https://github.com/decodelabs/chirp"
+        "dependencies": [
+            "decodelabs/tagged"
+        ],
+        "location": "https://github.com/decodelabs/chirp",
+        "notes": null
     },
     "decodelabs/exemplar": {
         "name": "Exemplar",
-        "language": "PHP",
+        "description": "Powerful XML tools",
+        "language": "php",
         "role": "XML reader / writer",
         "milestone": "m5",
-        "v1": null,
+        "scores": {
+            "code": 4,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/coercion",
             "decodelabs/collections",
@@ -1344,40 +1415,42 @@
             "decodelabs/exceptional",
             "decodelabs/nuance"
         ],
-        "scores": {
-            "code": 4,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/exemplar"
+        "location": "https://github.com/decodelabs/exemplar",
+        "notes": null
     },
     "decodelabs/mesa": {
         "name": "Mesa",
-        "language": "PHP",
+        "description": "CSV parsing and generation",
+        "language": "php",
         "role": "CSV parser",
         "milestone": "m5",
-        "v1": null,
+        "scores": {
+            "code": 3,
+            "readme": 1,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/atlas",
             "decodelabs/coercion",
             "decodelabs/exceptional",
             "decodelabs/nuance"
         ],
-        "scores": {
-            "code": 3,
-            "readme": 1,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/mesa"
+        "location": "https://github.com/decodelabs/mesa",
+        "notes": null
     },
     "decodelabs/telegraph": {
         "name": "Telegraph",
-        "language": "PHP",
+        "description": "Simple mailing list manager",
+        "language": "php",
         "role": "Mailing List manager",
         "milestone": "m5",
-        "v1": null,
+        "scores": {
+            "code": 4.5,
+            "readme": 4,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/coercion",
@@ -1386,20 +1459,21 @@
             "decodelabs/nuance",
             "decodelabs/relay"
         ],
-        "scores": {
-            "code": 4.5,
-            "readme": 4,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/telegraph"
+        "location": "https://github.com/decodelabs/telegraph",
+        "notes": null
     },
     "decodelabs/nightfire": {
         "name": "Nightfire",
-        "language": "PHP",
+        "description": "Composable view blocks",
+        "language": "php",
         "role": "Content blocks",
         "milestone": "m5",
-        "v1": null,
+        "scores": {
+            "code": 0,
+            "readme": 0,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/coercion",
@@ -1410,80 +1484,85 @@
             "decodelabs/slingshot",
             "decodelabs/tagged"
         ],
-        "scores": {
-            "code": 0,
-            "readme": 0,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/nightfire"
+        "location": "https://github.com/decodelabs/nightfire",
+        "notes": null
     },
     "decodelabs/jetstream": {
         "name": "Jetstream",
-        "language": "PHP",
+        "description": null,
+        "language": "php",
         "role": "Runner integrations",
         "milestone": "m5",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 0,
             "readme": 0,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": null
+        "dependencies": [],
+        "location": null,
+        "notes": null
     },
     "decodelabs/maxim": {
         "name": "Maxim",
-        "language": "PHP",
+        "description": null,
+        "language": "php",
         "role": "Data source abstraction",
         "milestone": "m6",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 0,
             "readme": 0,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": null
+        "dependencies": [],
+        "location": null,
+        "notes": null
     },
     "decodelabs/tabular": {
         "name": "Tabular",
-        "language": "PHP",
+        "description": null,
+        "language": "php",
         "role": "RDBMS adapters",
         "milestone": "m6",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 0,
             "readme": 0,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": null
+        "dependencies": [],
+        "location": null,
+        "notes": null
     },
     "decodelabs/tenet": {
         "name": "Tenet",
-        "language": "PHP",
+        "description": null,
+        "language": "php",
         "role": "Query builder",
         "milestone": "m6",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 0,
             "readme": 0,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": null
+        "dependencies": [],
+        "location": null,
+        "notes": null
     },
     "decodelabs/destiny": {
         "name": "Destiny",
-        "language": "PHP",
+        "description": "Powerful schedule management system",
+        "language": "php",
         "role": "Scheduled interactions",
         "milestone": "m6",
-        "v1": null,
+        "scores": {
+            "code": 2.5,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/atlas",
             "decodelabs/coercion",
@@ -1494,20 +1573,21 @@
             "decodelabs/nuance",
             "decodelabs/slingshot"
         ],
-        "scores": {
-            "code": 2.5,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/destiny"
+        "location": "https://github.com/decodelabs/destiny",
+        "notes": null
     },
     "decodelabs/prophet": {
         "name": "Prophet",
-        "language": "PHP",
+        "description": "Generalised interfaces for creating AI assistants",
+        "language": "php",
         "role": "AI assistants",
         "milestone": "m6",
-        "v1": null,
+        "scores": {
+            "code": 2.5,
+            "readme": 2.5,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/archetype",
             "decodelabs/atlas",
@@ -1518,176 +1598,187 @@
             "decodelabs/monarch",
             "decodelabs/slingshot"
         ],
-        "scores": {
-            "code": 2.5,
-            "readme": 2.5,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/prophet"
+        "location": "https://github.com/decodelabs/prophet",
+        "notes": null
     },
     "decodelabs/prophet-openai": {
         "name": "Prophet OpenAI",
-        "language": "PHP",
+        "description": "Open AI API adapter for the DecodeLabs Prophet assistant system",
+        "language": "php",
         "role": "OpenAI API implementation",
         "milestone": "m6",
-        "v1": null,
+        "scores": {
+            "code": 3,
+            "readme": 3,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/exceptional",
             "decodelabs/prophet"
         ],
-        "scores": {
-            "code": 3,
-            "readme": 3,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/prophet-openai"
+        "location": "https://github.com/decodelabs/prophet-openai",
+        "notes": null
     },
     "decodelabs/idiom": {
         "name": "Idiom",
-        "language": "PHP",
+        "description": "Lightwight text to HTML parser",
+        "language": "php",
         "role": "SimpleTags parser",
         "milestone": "m6",
-        "v1": null,
+        "scores": {
+            "code": 2.5,
+            "readme": 2,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/coercion",
             "decodelabs/tagged"
         ],
-        "scores": {
-            "code": 2.5,
-            "readme": 2,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/idiom"
+        "location": "https://github.com/decodelabs/idiom",
+        "notes": null
     },
     "decodelabs/bedrock": {
         "name": "Bedrock",
-        "language": "PHP",
+        "description": null,
+        "language": "php",
         "role": "Scaffolding",
         "milestone": "m6",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 0,
             "readme": 0,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": null
+        "dependencies": [],
+        "location": null,
+        "notes": null
     },
     "decodelabs/lexicon": {
         "name": "Lexicon",
-        "language": "PHP",
+        "description": null,
+        "language": "php",
         "role": "Translations",
         "milestone": "m6",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 0,
             "readme": 0,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": null
+        "dependencies": [],
+        "location": null,
+        "notes": null
     },
     "decodelabs/oasis": {
         "name": "Oasis",
-        "language": "PHP",
+        "description": null,
+        "language": "php",
         "role": "Backup manager",
         "milestone": "m6",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 0,
             "readme": 0,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": null
+        "dependencies": [],
+        "location": null,
+        "notes": null
     },
     "decodelabs/radiance": {
         "name": "Radiance",
-        "language": "PHP",
+        "description": null,
+        "language": "php",
         "role": "Image manipulation",
         "milestone": "m6",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 0,
             "readme": 0,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": null
+        "dependencies": [],
+        "location": null,
+        "notes": null
     },
     "decodelabs/sequential": {
         "name": "Sequential",
-        "language": "PHP",
+        "description": null,
+        "language": "php",
         "role": "Queue manager",
         "milestone": "m6",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 0,
             "readme": 0,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": null
+        "dependencies": [],
+        "location": null,
+        "notes": null
     },
     "decodelabs/stratos": {
         "name": "Stratos",
-        "language": "PHP",
+        "description": null,
+        "language": "php",
         "role": "Daemon handler",
         "milestone": "m6",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 0,
             "readme": 0,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": null
+        "dependencies": [],
+        "location": null,
+        "notes": null
     },
     "decodelabs/unity": {
         "name": "Unity",
-        "language": "PHP",
+        "description": null,
+        "language": "php",
         "role": "Unit parsing",
         "milestone": "m6",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 0,
             "readme": 0,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": null
+        "dependencies": [],
+        "location": null,
+        "notes": null
     },
     "decodelabs/viaduct": {
         "name": "Viaduct",
-        "language": "PHP",
+        "description": null,
+        "language": "php",
         "role": "Entity lookup",
         "milestone": "m6",
-        "v1": null,
-        "dependencies": [],
         "scores": {
             "code": 0,
             "readme": 0,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": null
+        "dependencies": [],
+        "location": null,
+        "notes": null
     },
     "decodelabs/indoctrination": {
         "name": "Indoctrination",
-        "language": "PHP",
+        "description": "Doctrine DBAL and ORM integration tools",
+        "language": "php",
         "role": "Doctrine integration",
-        "milestone": "",
-        "v1": null,
+        "milestone": null,
+        "scores": {
+            "code": 2,
+            "readme": 2,
+            "docs": 0,
+            "tests": 0
+        },
         "dependencies": [
             "decodelabs/coercion",
             "decodelabs/dovetail",
@@ -1698,44 +1789,41 @@
             "decodelabs/slingshot",
             "decodelabs/stash"
         ],
-        "scores": {
-            "code": 2,
-            "readme": 2,
-            "refDocs": 0,
-            "tests": 0
-        },
-        "location": "https://github.com/decodelabs/indoctrination"
+        "location": "https://github.com/decodelabs/indoctrination",
+        "notes": null
     },
     "decodelabs/veneer": {
         "name": "Veneer",
-        "language": "PHP",
+        "description": "Automated static facades",
+        "language": "php",
         "role": "Class frontages",
-        "milestone": "",
-        "v1": null,
-        "dependencies": [
-            "decodelabs/exceptional"
-        ],
+        "milestone": null,
         "scores": {
             "code": 4.5,
             "readme": 3,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": "https://github.com/decodelabs/veneer"
+        "dependencies": [
+            "decodelabs/exceptional"
+        ],
+        "location": "https://github.com/decodelabs/veneer",
+        "notes": null
     },
     "decodelabs/labs-playground": {
         "name": "Labs Playground",
-        "language": "PHP",
+        "description": null,
+        "language": "php",
         "role": "Playground app",
-        "milestone": "",
-        "v1": null,
-        "dependencies": [],
+        "milestone": null,
         "scores": {
             "code": 3,
             "readme": 3,
-            "refDocs": 0,
+            "docs": 0,
             "tests": 0
         },
-        "location": null
+        "dependencies": [],
+        "location": null,
+        "notes": null
     }
 }

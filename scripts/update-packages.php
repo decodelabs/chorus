@@ -65,71 +65,66 @@ final class ChorusPackageUpdater
                 $deps = $this->readDecodelabsDependencies($repoPath);
             }
 
-            $rowNorm['dependencies'] = array_values($deps);
-
-            if (array_key_exists('code', $rowNorm)) {
-                $rowNorm['code'] = $this->coerceScore($rowNorm['code']);
-            }
-
-            if (array_key_exists('readme', $rowNorm)) {
-                $rowNorm['readme'] = $this->coerceScore($rowNorm['readme']);
-            }
-
-            if (array_key_exists('refDocs', $rowNorm)) {
-                $rowNorm['refDocs'] = $this->coerceScore($rowNorm['refDocs']);
-            }
-
-            if (array_key_exists('tests', $rowNorm)) {
-                $rowNorm['tests'] = $this->coerceScore($rowNorm['tests']);
-            }
-
-            if (array_key_exists('v1', $rowNorm)) {
-                $rowNorm['v1'] = $this->coerceV1NullableBool($rowNorm['v1']);
-            }
-
             // Expand dependencies to full package names "decodelabs/<name>"
-            if (isset($rowNorm['dependencies']) && is_array($rowNorm['dependencies'])) {
-                $rowNorm['dependencies'] = array_values(array_map(
-                    static function (string $dep): string {
-                        return str_starts_with($dep, 'decodelabs/') ? $dep : ('decodelabs/' . $dep);
-                    },
-                    $rowNorm['dependencies'],
-                ));
+            $deps = array_values(array_map(
+                static function (string $dep): string {
+                    return str_starts_with($dep, 'decodelabs/') ? $dep : ('decodelabs/' . $dep);
+                },
+                $deps,
+            ));
+
+            // Extract description from composer.json if available
+            $description = null;
+            if (is_dir($repoPath)) {
+                $description = $this->readDescriptionFromComposer($repoPath);
             }
 
-            // Group score fields into scores object
-            $scores = [];
-            if (array_key_exists('code', $rowNorm)) {
-                $scores['code'] = (float)$rowNorm['code'];
-                unset($rowNorm['code']);
-            }
-            if (array_key_exists('readme', $rowNorm)) {
-                $scores['readme'] = (float)$rowNorm['readme'];
-                unset($rowNorm['readme']);
-            }
-            if (array_key_exists('refDocs', $rowNorm)) {
-                $scores['refDocs'] = (float)$rowNorm['refDocs'];
-                unset($rowNorm['refDocs']);
-            }
-            if (array_key_exists('tests', $rowNorm)) {
-                $scores['tests'] = (float)$rowNorm['tests'];
-                unset($rowNorm['tests']);
-            }
-            if (!empty($scores)) {
-                $rowNorm['scores'] = $scores;
-            }
+            // Normalize language to match schema enum
+            $language = isset($rowNorm['language']) ? strtolower(trim((string)$rowNorm['language'])) : '';
+            $language = $this->normalizeLanguage($language);
+
+            // Normalize milestone to match schema pattern
+            $milestone = isset($rowNorm['milestone']) ? trim((string)$rowNorm['milestone']) : '';
+            $milestone = $this->normalizeMilestone($milestone);
+
+            // Build scores object with all required fields (defaulting to 0.0)
+            $scores = [
+                'code' => $this->coerceScore($rowNorm['code'] ?? 0.0),
+                'readme' => $this->coerceScore($rowNorm['readme'] ?? 0.0),
+                'docs' => $this->coerceScore($rowNorm['refDocs'] ?? $rowNorm['docs'] ?? 0.0),
+                'tests' => $this->coerceScore($rowNorm['tests'] ?? 0.0),
+            ];
 
             // Determine GitHub key and location
-            $language = isset($rowNorm['language']) ? strtolower(trim((string)$rowNorm['language'])) : '';
             [$repoKeyName, $exists] = $this->determineRepoKeyName(
                 $repoPath,
                 $slug,
                 $language,
             );
             $githubFullName = 'decodelabs/' . $repoKeyName;
-            $rowNorm['location'] = $exists ? ('https://github.com/' . $githubFullName) : null;
 
-            $outputMap[$githubFullName] = $rowNorm;
+            // Build output object conforming to schema
+            $output = [
+                'name' => $name,
+                'description' => $description,
+                'language' => $language,
+                'role' => isset($rowNorm['role']) ? trim((string)$rowNorm['role']) : '',
+                'milestone' => $milestone !== '' ? $milestone : null,
+                'scores' => $scores,
+                'dependencies' => $deps,
+                'location' => $exists ? ('https://github.com/' . $githubFullName) : null,
+                'notes' => isset($rowNorm['notes']) ? trim((string)$rowNorm['notes']) : null,
+            ];
+
+            // Convert empty strings to null for nullable fields
+            if ($output['description'] === '') {
+                $output['description'] = null;
+            }
+            if ($output['notes'] === '') {
+                $output['notes'] = null;
+            }
+
+            $outputMap[$githubFullName] = $output;
         }
 
         $jsonOut = json_encode($outputMap, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
@@ -250,6 +245,26 @@ final class ChorusPackageUpdater
         return $out;
     }
 
+    /**
+     * Convert empty strings to null for text fields, preserving arrays, booleans, numbers, and null values.
+     *
+     * @param array<string,mixed> $row
+     * @return array<string,mixed>
+     */
+    private function normalizeEmptyStrings(
+        array $row,
+    ): array {
+        $out = [];
+        foreach ($row as $k => $v) {
+            if (is_string($v) && $v === '') {
+                $out[$k] = null;
+            } else {
+                $out[$k] = $v;
+            }
+        }
+        return $out;
+    }
+
     private function coerceScore(
         mixed $value,
     ): float {
@@ -360,6 +375,84 @@ final class ChorusPackageUpdater
             if (is_string($body) && $body !== '') {
                 return $body;
             }
+        }
+
+        return '';
+    }
+
+    /**
+     * Read description from composer.json if available.
+     */
+    private function readDescriptionFromComposer(
+        string $repoPath,
+    ): ?string {
+        $composerPath = $repoPath . '/composer.json';
+
+        if (!is_file($composerPath)) {
+            return null;
+        }
+
+        $json = file_get_contents($composerPath);
+
+        if (!is_string($json) || $json === '') {
+            return null;
+        }
+
+        $data = json_decode($json, true);
+
+        if (!is_array($data) || !isset($data['description']) || !is_string($data['description'])) {
+            return null;
+        }
+
+        $desc = trim($data['description']);
+        return $desc !== '' ? $desc : null;
+    }
+
+    /**
+     * Normalize language to match schema enum: "php", "ts", "javascript", "typescript"
+     */
+    private function normalizeLanguage(
+        string $language,
+    ): string {
+        $lang = strtolower(trim($language));
+
+        // Map common variations to schema enum values
+        if ($lang === '' || $lang === 'php') {
+            return 'php';
+        }
+
+        if ($lang === 'ts' || $lang === 'typescript') {
+            return 'typescript';
+        }
+
+        if ($lang === 'js' || $lang === 'javascript') {
+            return 'javascript';
+        }
+
+        // Default to php if unknown
+        return 'php';
+    }
+
+    /**
+     * Normalize milestone to match schema pattern "^m[1-6]$" or return empty string.
+     */
+    private function normalizeMilestone(
+        string $milestone,
+    ): string {
+        $mil = strtolower(trim($milestone));
+
+        if ($mil === '') {
+            return '';
+        }
+
+        // Match pattern m1-m6
+        if (preg_match('/^m([1-6])$/', $mil, $matches) === 1) {
+            return 'm' . $matches[1];
+        }
+
+        // Try to extract number if format is different
+        if (preg_match('/([1-6])/', $mil, $matches) === 1) {
+            return 'm' . $matches[1];
         }
 
         return '';

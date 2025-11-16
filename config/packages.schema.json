@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Decode Labs Package Index",
+  "description": "Canonical index of all Decode Labs packages, generated from the internal spreadsheet.",
+  "type": "object",
+
+  "patternProperties": {
+    "^[a-z0-9-]+\\/[a-z0-9-]+$": {
+      "type": "object",
+      "required": [ "name", "language", "role", "milestone", "dependencies" ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Human readable package name (e.g. 'Exceptional')."
+        },
+
+        "description": {
+          "type": "string",
+          "description": "Short description of what the package does.",
+          "nullable": true
+        },
+
+        "language": {
+          "type": "string",
+          "enum": [ "php", "ts", "javascript", "typescript" ],
+          "description": "Primary implementation language."
+        },
+
+        "role": {
+          "type": "string",
+          "description": "High-level responsibility of the package (from spreadsheet)."
+        },
+
+        "milestone": {
+          "type": "string",
+          "pattern": "^m[1-6]$",
+          "description": "Development milestone (m1–m6).",
+          "nullable": true
+        },
+
+        "stability": {
+          "type": "string",
+          "enum": [ "stable", "beta", "experimental", "deprecated" ],
+          "description": "Optional stability classification derived from milestone or maintainer judgment.",
+          "nullable": true
+        },
+
+        "scores": {
+          "type": "object",
+          "description": "Subjective package quality scores.",
+          "required": [ "code", "readme", "docs", "tests" ],
+          "properties": {
+            "code": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 5
+            },
+            "readme": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 5
+            },
+            "docs": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 5
+            },
+            "tests": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 5
+            }
+          }
+        },
+
+        "dependencies": {
+          "type": "array",
+          "description": "List of dependent package names as composer IDs (e.g. 'decodelabs/exceptional').",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+\\/[a-z0-9-]+$"
+          }
+        },
+
+        "location": {
+          "type": [ "string", "null" ],
+          "description": "Absolute GitHub repository URL, if available."
+        },
+
+        "notes": {
+          "type": [ "string", "null" ],
+          "description": "Free-text notes for meta/architectural commentary."
+        }
+      },
+
+      "additionalProperties": false
+    }
+  },
+
+  "additionalProperties": false
+}
