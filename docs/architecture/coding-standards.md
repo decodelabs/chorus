@@ -131,26 +131,19 @@ For methods that can “optionally” return a value, the default convention is:
 Example:
 
 ```php
-public function tryGetUser(
+public function tryResolve(
     string $id,
-): ?User {
-    // Returns a User or null if not found
+): ?Resource {
+    // Returns a Resource or null if not found
 }
 
-public function getUser(
+public function resolve(
     string $id,
-): User {
-    $user = $this->tryGetUser($id);
-
-    if ($user === null) {
-        // Throw a domain-appropriate exception
-        throw Exceptional::NotFound(
-            message: 'User not found',
-            data: ['id' => $id]
-        );
-    }
-
-    return $user;
+): Resource {
+    return $this->tryResolve($id) ?? throw Exceptional::NotFound(
+        message: 'Resource not found',
+        data: ['id' => $id]
+    );
 }
 ```
 
