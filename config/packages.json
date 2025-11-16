@@ -661,7 +661,7 @@
         ],
         "location": "https://github.com/decodelabs/elementary",
         "notes": null,
-        "cluster": "core"
+        "cluster": "frontend"
     },
     "decodelabs/tagged": {
         "name": "Tagged",
@@ -1052,7 +1052,7 @@
         ],
         "location": "https://github.com/decodelabs/disciple",
         "notes": null,
-        "cluster": "logic"
+        "cluster": "data"
     },
     "decodelabs/horizon": {
         "name": "Horizon",
@@ -1418,7 +1418,7 @@
         ],
         "location": "https://github.com/decodelabs/referential",
         "notes": null,
-        "cluster": "logic"
+        "cluster": "data"
     },
     "decodelabs/imprint": {
         "name": "Imprint",
@@ -1482,7 +1482,7 @@
         ],
         "location": "https://github.com/decodelabs/exemplar",
         "notes": null,
-        "cluster": "logic"
+        "cluster": "data"
     },
     "decodelabs/mesa": {
         "name": "Mesa",
@@ -1765,7 +1765,7 @@
         "dependencies": [],
         "location": null,
         "notes": null,
-        "cluster": "data"
+        "cluster": "io"
     },
     "decodelabs/radiance": {
         "name": "Radiance",
@@ -1782,7 +1782,7 @@
         "dependencies": [],
         "location": null,
         "notes": null,
-        "cluster": "logic"
+        "cluster": "content"
     },
     "decodelabs/sequential": {
         "name": "Sequential",
@@ -1833,7 +1833,7 @@
         "dependencies": [],
         "location": null,
         "notes": null,
-        "cluster": "logic"
+        "cluster": "data"
     },
     "decodelabs/viaduct": {
         "name": "Viaduct",
