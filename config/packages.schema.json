@@ -90,6 +90,11 @@
         "notes": {
           "type": [ "string", "null" ],
           "description": "Free-text notes for meta/architectural commentary."
+        },
+
+        "cluster": {
+          "type": [ "string", "null" ],
+          "description": "Package cluster grouping for organizational purposes."
         }
       },
 

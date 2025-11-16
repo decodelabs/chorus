@@ -13,7 +13,8 @@
         },
         "dependencies": [],
         "location": "https://github.com/decodelabs/remnant",
-        "notes": null
+        "notes": null,
+        "cluster": "observability"
     },
     "decodelabs/wellspring": {
         "name": "Wellspring",
@@ -29,7 +30,8 @@
         },
         "dependencies": [],
         "location": "https://github.com/decodelabs/wellspring",
-        "notes": null
+        "notes": null,
+        "cluster": "runtime"
     },
     "decodelabs/exceptional": {
         "name": "Exceptional",
@@ -48,7 +50,8 @@
             "decodelabs/wellspring"
         ],
         "location": "https://github.com/decodelabs/exceptional",
-        "notes": null
+        "notes": null,
+        "cluster": "core"
     },
     "decodelabs/coercion": {
         "name": "Coercion",
@@ -66,7 +69,8 @@
             "decodelabs/exceptional"
         ],
         "location": "https://github.com/decodelabs/coercion",
-        "notes": null
+        "notes": null,
+        "cluster": "language"
     },
     "decodelabs/kingdom": {
         "name": "Kingdom",
@@ -84,7 +88,8 @@
             "decodelabs/exceptional"
         ],
         "location": "https://github.com/decodelabs/kingdom",
-        "notes": null
+        "notes": null,
+        "cluster": "runtime"
     },
     "decodelabs/enumerable": {
         "name": "Enumerable",
@@ -103,7 +108,8 @@
             "decodelabs/exceptional"
         ],
         "location": "https://github.com/decodelabs/enumerable",
-        "notes": null
+        "notes": null,
+        "cluster": "language"
     },
     "decodelabs/nuance": {
         "name": "Nuance",
@@ -123,7 +129,8 @@
             "decodelabs/remnant"
         ],
         "location": "https://github.com/decodelabs/nuance",
-        "notes": null
+        "notes": null,
+        "cluster": "observability"
     },
     "decodelabs/monarch": {
         "name": "Monarch",
@@ -143,7 +150,8 @@
             "decodelabs/kingdom"
         ],
         "location": "https://github.com/decodelabs/monarch",
-        "notes": null
+        "notes": null,
+        "cluster": "runtime"
     },
     "decodelabs/slingshot": {
         "name": "Slingshot",
@@ -164,7 +172,8 @@
             "decodelabs/monarch"
         ],
         "location": "https://github.com/decodelabs/slingshot",
-        "notes": null
+        "notes": null,
+        "cluster": "runtime"
     },
     "decodelabs/archetype": {
         "name": "Archetype",
@@ -184,7 +193,8 @@
             "decodelabs/nuance"
         ],
         "location": "https://github.com/decodelabs/archetype",
-        "notes": null
+        "notes": null,
+        "cluster": "runtime"
     },
     "decodelabs/deliverance": {
         "name": "Deliverance",
@@ -202,7 +212,8 @@
             "decodelabs/exceptional"
         ],
         "location": "https://github.com/decodelabs/deliverance",
-        "notes": null
+        "notes": null,
+        "cluster": "io"
     },
     "decodelabs/atlas": {
         "name": "Atlas",
@@ -224,7 +235,8 @@
             "decodelabs/nuance"
         ],
         "location": "https://github.com/decodelabs/atlas",
-        "notes": null
+        "notes": null,
+        "cluster": "io"
     },
     "decodelabs/phpstan-decodelabs": {
         "name": "PHPStan DecodeLabs",
@@ -240,7 +252,8 @@
         },
         "dependencies": [],
         "location": "https://github.com/decodelabs/phpstan-decodelabs",
-        "notes": null
+        "notes": null,
+        "cluster": "tooling"
     },
     "decodelabs/pandora": {
         "name": "Pandora",
@@ -261,7 +274,8 @@
             "decodelabs/slingshot"
         ],
         "location": "https://github.com/decodelabs/pandora",
-        "notes": null
+        "notes": null,
+        "cluster": "runtime"
     },
     "decodelabs/terminus": {
         "name": "Terminus",
@@ -282,7 +296,8 @@
             "decodelabs/kingdom"
         ],
         "location": "https://github.com/decodelabs/terminus",
-        "notes": null
+        "notes": null,
+        "cluster": "cli"
     },
     "decodelabs/commandment": {
         "name": "Commandment",
@@ -304,7 +319,8 @@
             "decodelabs/slingshot"
         ],
         "location": "https://github.com/decodelabs/commandment",
-        "notes": null
+        "notes": null,
+        "cluster": "cli"
     },
     "decodelabs/genesis": {
         "name": "Genesis",
@@ -329,7 +345,8 @@
             "decodelabs/terminus"
         ],
         "location": "https://github.com/decodelabs/genesis",
-        "notes": null
+        "notes": null,
+        "cluster": "runtime"
     },
     "decodelabs/enlighten": {
         "name": "Enlighten",
@@ -348,7 +365,8 @@
             "decodelabs/exceptional"
         ],
         "location": "https://github.com/decodelabs/enlighten",
-        "notes": null
+        "notes": null,
+        "cluster": "observability"
     },
     "decodelabs/glitch": {
         "name": "Glitch",
@@ -372,7 +390,8 @@
             "decodelabs/remnant"
         ],
         "location": "https://github.com/decodelabs/glitch",
-        "notes": null
+        "notes": null,
+        "cluster": "observability"
     },
     "decodelabs/clip": {
         "name": "Clip",
@@ -401,7 +420,8 @@
             "decodelabs/terminus"
         ],
         "location": "https://github.com/decodelabs/clip",
-        "notes": null
+        "notes": null,
+        "cluster": "cli"
     },
     "decodelabs/fluidity": {
         "name": "Fluidity",
@@ -417,7 +437,8 @@
         },
         "dependencies": [],
         "location": "https://github.com/decodelabs/fluidity",
-        "notes": null
+        "notes": null,
+        "cluster": "language"
     },
     "decodelabs/lucid": {
         "name": "Lucid",
@@ -438,7 +459,8 @@
             "decodelabs/slingshot"
         ],
         "location": "https://github.com/decodelabs/lucid",
-        "notes": null
+        "notes": null,
+        "cluster": "logic"
     },
     "decodelabs/collections": {
         "name": "Collections",
@@ -459,7 +481,8 @@
             "decodelabs/lucid"
         ],
         "location": "https://github.com/decodelabs/collections",
-        "notes": null
+        "notes": null,
+        "cluster": "data"
     },
     "decodelabs/eventful": {
         "name": "Eventful",
@@ -479,7 +502,8 @@
             "decodelabs/exceptional"
         ],
         "location": "https://github.com/decodelabs/eventful",
-        "notes": null
+        "notes": null,
+        "cluster": "io"
     },
     "decodelabs/systemic": {
         "name": "Systemic",
@@ -503,7 +527,8 @@
             "decodelabs/nuance"
         ],
         "location": "https://github.com/decodelabs/systemic",
-        "notes": null
+        "notes": null,
+        "cluster": "io"
     },
     "decodelabs/kairos": {
         "name": "Kairos",
@@ -523,7 +548,8 @@
             "decodelabs/nuance"
         ],
         "location": "https://github.com/decodelabs/kairos",
-        "notes": null
+        "notes": null,
+        "cluster": "core"
     },
     "decodelabs/compass": {
         "name": "Compass",
@@ -543,7 +569,8 @@
             "decodelabs/nuance"
         ],
         "location": "https://github.com/decodelabs/compass",
-        "notes": null
+        "notes": null,
+        "cluster": "core"
     },
     "decodelabs/singularity": {
         "name": "Singularity",
@@ -567,7 +594,8 @@
             "decodelabs/nuance"
         ],
         "location": "https://github.com/decodelabs/singularity",
-        "notes": null
+        "notes": null,
+        "cluster": "http"
     },
     "decodelabs/cosmos": {
         "name": "Cosmos",
@@ -587,7 +615,8 @@
             "decodelabs/nuance"
         ],
         "location": "https://github.com/decodelabs/cosmos",
-        "notes": null
+        "notes": null,
+        "cluster": "core"
     },
     "decodelabs/dictum": {
         "name": "Dictum",
@@ -609,7 +638,8 @@
             "decodelabs/nuance"
         ],
         "location": "https://github.com/decodelabs/dictum",
-        "notes": null
+        "notes": null,
+        "cluster": "frontend"
     },
     "decodelabs/elementary": {
         "name": "Elementary",
@@ -630,7 +660,8 @@
             "decodelabs/nuance"
         ],
         "location": "https://github.com/decodelabs/elementary",
-        "notes": null
+        "notes": null,
+        "cluster": "core"
     },
     "decodelabs/tagged": {
         "name": "Tagged",
@@ -656,7 +687,8 @@
             "decodelabs/slingshot"
         ],
         "location": "https://github.com/decodelabs/tagged",
-        "notes": null
+        "notes": null,
+        "cluster": "frontend"
     },
     "decodelabs/harvest": {
         "name": "Harvest",
@@ -686,7 +718,8 @@
             "decodelabs/slingshot"
         ],
         "location": "https://github.com/decodelabs/harvest",
-        "notes": null
+        "notes": null,
+        "cluster": "http"
     },
     "decodelabs/guidance": {
         "name": "Guidance",
@@ -707,7 +740,8 @@
             "decodelabs/nuance"
         ],
         "location": "https://github.com/decodelabs/guidance",
-        "notes": null
+        "notes": null,
+        "cluster": "core"
     },
     "decodelabs/hatch": {
         "name": "Hatch",
@@ -725,7 +759,8 @@
             "decodelabs/exceptional"
         ],
         "location": "https://github.com/decodelabs/hatch",
-        "notes": null
+        "notes": null,
+        "cluster": "tooling"
     },
     "decodelabs/iota": {
         "name": "Iota",
@@ -748,7 +783,8 @@
             "decodelabs/monarch"
         ],
         "location": "https://github.com/decodelabs/iota",
-        "notes": null
+        "notes": null,
+        "cluster": "io"
     },
     "decodelabs/greenleaf": {
         "name": "Greenleaf",
@@ -777,7 +813,8 @@
             "decodelabs/slingshot"
         ],
         "location": "https://github.com/decodelabs/greenleaf",
-        "notes": null
+        "notes": null,
+        "cluster": "http"
     },
     "decodelabs/stash": {
         "name": "Stash",
@@ -801,7 +838,8 @@
             "decodelabs/monarch"
         ],
         "location": "https://github.com/decodelabs/stash",
-        "notes": null
+        "notes": null,
+        "cluster": "io"
     },
     "decodelabs/dovetail": {
         "name": "Dovetail",
@@ -828,7 +866,8 @@
             "decodelabs/monarch"
         ],
         "location": "https://github.com/decodelabs/dovetail",
-        "notes": null
+        "notes": null,
+        "cluster": "data"
     },
     "decodelabs/fabric": {
         "name": "Fabric",
@@ -860,7 +899,8 @@
             "decodelabs/systemic"
         ],
         "location": "https://github.com/decodelabs/fabric",
-        "notes": null
+        "notes": null,
+        "cluster": "runtime"
     },
     "decodelabs/supermodel": {
         "name": "Supermodel",
@@ -882,7 +922,8 @@
             "decodelabs/slingshot"
         ],
         "location": "https://github.com/decodelabs/supermodel",
-        "notes": null
+        "notes": null,
+        "cluster": "data"
     },
     "decodelabs/chronicle": {
         "name": "Chronicle",
@@ -906,7 +947,8 @@
             "decodelabs/systemic"
         ],
         "location": "https://github.com/decodelabs/chronicle",
-        "notes": null
+        "notes": null,
+        "cluster": "tooling"
     },
     "decodelabs/integra": {
         "name": "Integra",
@@ -931,7 +973,8 @@
             "decodelabs/systemic"
         ],
         "location": "https://github.com/decodelabs/integra",
-        "notes": null
+        "notes": null,
+        "cluster": "integration"
     },
     "decodelabs/overpass": {
         "name": "Overpass",
@@ -952,7 +995,8 @@
             "decodelabs/systemic"
         ],
         "location": "https://github.com/decodelabs/overpass",
-        "notes": null
+        "notes": null,
+        "cluster": "integration"
     },
     "decodelabs/effigy": {
         "name": "Effigy",
@@ -985,7 +1029,8 @@
             "decodelabs/terminus"
         ],
         "location": "https://github.com/decodelabs/effigy",
-        "notes": null
+        "notes": null,
+        "cluster": "tooling"
     },
     "decodelabs/disciple": {
         "name": "Disciple",
@@ -1006,7 +1051,8 @@
             "decodelabs/monarch"
         ],
         "location": "https://github.com/decodelabs/disciple",
-        "notes": null
+        "notes": null,
+        "cluster": "logic"
     },
     "decodelabs/horizon": {
         "name": "Horizon",
@@ -1030,7 +1076,8 @@
             "decodelabs/tagged"
         ],
         "location": "https://github.com/decodelabs/horizon",
-        "notes": null
+        "notes": null,
+        "cluster": "frontend"
     },
     "decodelabs/zest": {
         "name": "Zest",
@@ -1061,7 +1108,8 @@
             "decodelabs/typify"
         ],
         "location": "https://github.com/decodelabs/zest",
-        "notes": null
+        "notes": null,
+        "cluster": "frontend"
     },
     "decodelabs/vite-plugin-zest": {
         "name": "Zest vite plugin",
@@ -1077,7 +1125,8 @@
         },
         "dependencies": [],
         "location": "https://github.com/decodelabs/vite-plugin-zest",
-        "notes": null
+        "notes": null,
+        "cluster": "frontend"
     },
     "decodelabs/impulse": {
         "name": "Impulse",
@@ -1099,7 +1148,8 @@
             "decodelabs/slingshot"
         ],
         "location": "https://github.com/decodelabs/impulse",
-        "notes": null
+        "notes": null,
+        "cluster": "runtime"
     },
     "decodelabs/hydro": {
         "name": "Hydro",
@@ -1120,7 +1170,8 @@
             "decodelabs/kingdom"
         ],
         "location": "https://github.com/decodelabs/hydro",
-        "notes": null
+        "notes": null,
+        "cluster": "http"
     },
     "decodelabs/typify": {
         "name": "Typify",
@@ -1139,7 +1190,8 @@
             "decodelabs/kingdom"
         ],
         "location": "https://github.com/decodelabs/typify",
-        "notes": null
+        "notes": null,
+        "cluster": "core"
     },
     "decodelabs/cipher": {
         "name": "Cipher",
@@ -1160,7 +1212,8 @@
             "decodelabs/slingshot"
         ],
         "location": "https://github.com/decodelabs/cipher",
-        "notes": null
+        "notes": null,
+        "cluster": "logic"
     },
     "decodelabs/relay": {
         "name": "Relay",
@@ -1178,7 +1231,8 @@
             "decodelabs/exceptional"
         ],
         "location": "https://github.com/decodelabs/relay",
-        "notes": null
+        "notes": null,
+        "cluster": "integration"
     },
     "decodelabs/spectrum": {
         "name": "Spectrum",
@@ -1198,7 +1252,8 @@
             "decodelabs/nuance"
         ],
         "location": "https://github.com/decodelabs/spectrum",
-        "notes": null
+        "notes": null,
+        "cluster": "core"
     },
     "decodelabs/vite-plugin-castaway": {
         "name": "Castaway vite plugin",
@@ -1214,7 +1269,8 @@
         },
         "dependencies": [],
         "location": "https://github.com/decodelabs/vite-plugin-castaway",
-        "notes": null
+        "notes": null,
+        "cluster": "frontend"
     },
     "decodelabs/castaway": {
         "name": "Castaway",
@@ -1233,7 +1289,8 @@
             "decodelabs/kingdom"
         ],
         "location": "https://github.com/decodelabs/castaway",
-        "notes": null
+        "notes": null,
+        "cluster": "frontend"
     },
     "decodelabs/fabric-start": {
         "name": "Fabric start",
@@ -1249,7 +1306,8 @@
         },
         "dependencies": [],
         "location": null,
-        "notes": null
+        "notes": null,
+        "cluster": "tooling"
     },
     "decodelabs/fabric-create": {
         "name": "Fabric create",
@@ -1265,7 +1323,8 @@
         },
         "dependencies": [],
         "location": null,
-        "notes": null
+        "notes": null,
+        "cluster": "tooling"
     },
     "decodelabs/sanctum": {
         "name": "Sanctum",
@@ -1286,7 +1345,8 @@
             "decodelabs/nuance"
         ],
         "location": "https://github.com/decodelabs/sanctum",
-        "notes": null
+        "notes": null,
+        "cluster": "logic"
     },
     "decodelabs/scrutiny": {
         "name": "Scrutiny",
@@ -1315,7 +1375,8 @@
             "decodelabs/tagged"
         ],
         "location": "https://github.com/decodelabs/scrutiny",
-        "notes": null
+        "notes": null,
+        "cluster": "logic"
     },
     "decodelabs/metamorph": {
         "name": "Metamorph",
@@ -1337,7 +1398,8 @@
             "decodelabs/tagged"
         ],
         "location": "https://github.com/decodelabs/metamorph",
-        "notes": null
+        "notes": null,
+        "cluster": "content"
     },
     "decodelabs/referential": {
         "name": "Referential",
@@ -1355,7 +1417,8 @@
             "decodelabs/exceptional"
         ],
         "location": "https://github.com/decodelabs/referential",
-        "notes": null
+        "notes": null,
+        "cluster": "logic"
     },
     "decodelabs/imprint": {
         "name": "Imprint",
@@ -1376,7 +1439,8 @@
             "decodelabs/kingdom"
         ],
         "location": "https://github.com/decodelabs/imprint",
-        "notes": null
+        "notes": null,
+        "cluster": "content"
     },
     "decodelabs/chirp": {
         "name": "Chirp",
@@ -1394,7 +1458,8 @@
             "decodelabs/tagged"
         ],
         "location": "https://github.com/decodelabs/chirp",
-        "notes": null
+        "notes": null,
+        "cluster": "content"
     },
     "decodelabs/exemplar": {
         "name": "Exemplar",
@@ -1416,7 +1481,8 @@
             "decodelabs/nuance"
         ],
         "location": "https://github.com/decodelabs/exemplar",
-        "notes": null
+        "notes": null,
+        "cluster": "logic"
     },
     "decodelabs/mesa": {
         "name": "Mesa",
@@ -1437,7 +1503,8 @@
             "decodelabs/nuance"
         ],
         "location": "https://github.com/decodelabs/mesa",
-        "notes": null
+        "notes": null,
+        "cluster": "data"
     },
     "decodelabs/telegraph": {
         "name": "Telegraph",
@@ -1460,7 +1527,8 @@
             "decodelabs/relay"
         ],
         "location": "https://github.com/decodelabs/telegraph",
-        "notes": null
+        "notes": null,
+        "cluster": "integration"
     },
     "decodelabs/nightfire": {
         "name": "Nightfire",
@@ -1485,7 +1553,8 @@
             "decodelabs/tagged"
         ],
         "location": "https://github.com/decodelabs/nightfire",
-        "notes": null
+        "notes": null,
+        "cluster": "content"
     },
     "decodelabs/jetstream": {
         "name": "Jetstream",
@@ -1501,7 +1570,8 @@
         },
         "dependencies": [],
         "location": null,
-        "notes": null
+        "notes": null,
+        "cluster": "http"
     },
     "decodelabs/maxim": {
         "name": "Maxim",
@@ -1517,7 +1587,8 @@
         },
         "dependencies": [],
         "location": null,
-        "notes": null
+        "notes": null,
+        "cluster": "data"
     },
     "decodelabs/tabular": {
         "name": "Tabular",
@@ -1533,7 +1604,8 @@
         },
         "dependencies": [],
         "location": null,
-        "notes": null
+        "notes": null,
+        "cluster": "data"
     },
     "decodelabs/tenet": {
         "name": "Tenet",
@@ -1549,7 +1621,8 @@
         },
         "dependencies": [],
         "location": null,
-        "notes": null
+        "notes": null,
+        "cluster": "data"
     },
     "decodelabs/destiny": {
         "name": "Destiny",
@@ -1574,7 +1647,8 @@
             "decodelabs/slingshot"
         ],
         "location": "https://github.com/decodelabs/destiny",
-        "notes": null
+        "notes": null,
+        "cluster": "logic"
     },
     "decodelabs/prophet": {
         "name": "Prophet",
@@ -1599,7 +1673,8 @@
             "decodelabs/slingshot"
         ],
         "location": "https://github.com/decodelabs/prophet",
-        "notes": null
+        "notes": null,
+        "cluster": "logic"
     },
     "decodelabs/prophet-openai": {
         "name": "Prophet OpenAI",
@@ -1618,7 +1693,8 @@
             "decodelabs/prophet"
         ],
         "location": "https://github.com/decodelabs/prophet-openai",
-        "notes": null
+        "notes": null,
+        "cluster": "logic"
     },
     "decodelabs/idiom": {
         "name": "Idiom",
@@ -1637,7 +1713,8 @@
             "decodelabs/tagged"
         ],
         "location": "https://github.com/decodelabs/idiom",
-        "notes": null
+        "notes": null,
+        "cluster": "content"
     },
     "decodelabs/bedrock": {
         "name": "Bedrock",
@@ -1653,7 +1730,8 @@
         },
         "dependencies": [],
         "location": null,
-        "notes": null
+        "notes": null,
+        "cluster": "tooling"
     },
     "decodelabs/lexicon": {
         "name": "Lexicon",
@@ -1669,7 +1747,8 @@
         },
         "dependencies": [],
         "location": null,
-        "notes": null
+        "notes": null,
+        "cluster": "content"
     },
     "decodelabs/oasis": {
         "name": "Oasis",
@@ -1685,7 +1764,8 @@
         },
         "dependencies": [],
         "location": null,
-        "notes": null
+        "notes": null,
+        "cluster": "data"
     },
     "decodelabs/radiance": {
         "name": "Radiance",
@@ -1701,7 +1781,8 @@
         },
         "dependencies": [],
         "location": null,
-        "notes": null
+        "notes": null,
+        "cluster": "logic"
     },
     "decodelabs/sequential": {
         "name": "Sequential",
@@ -1717,7 +1798,8 @@
         },
         "dependencies": [],
         "location": null,
-        "notes": null
+        "notes": null,
+        "cluster": "runtime"
     },
     "decodelabs/stratos": {
         "name": "Stratos",
@@ -1733,7 +1815,8 @@
         },
         "dependencies": [],
         "location": null,
-        "notes": null
+        "notes": null,
+        "cluster": "runtime"
     },
     "decodelabs/unity": {
         "name": "Unity",
@@ -1749,7 +1832,8 @@
         },
         "dependencies": [],
         "location": null,
-        "notes": null
+        "notes": null,
+        "cluster": "logic"
     },
     "decodelabs/viaduct": {
         "name": "Viaduct",
@@ -1765,7 +1849,8 @@
         },
         "dependencies": [],
         "location": null,
-        "notes": null
+        "notes": null,
+        "cluster": "runtime"
     },
     "decodelabs/indoctrination": {
         "name": "Indoctrination",
@@ -1790,7 +1875,8 @@
             "decodelabs/stash"
         ],
         "location": "https://github.com/decodelabs/indoctrination",
-        "notes": null
+        "notes": null,
+        "cluster": "data"
     },
     "decodelabs/veneer": {
         "name": "Veneer",
@@ -1808,7 +1894,8 @@
             "decodelabs/exceptional"
         ],
         "location": "https://github.com/decodelabs/veneer",
-        "notes": null
+        "notes": null,
+        "cluster": "runtime"
     },
     "decodelabs/labs-playground": {
         "name": "Labs Playground",
@@ -1824,6 +1911,7 @@
         },
         "dependencies": [],
         "location": null,
-        "notes": null
+        "notes": null,
+        "cluster": "tooling"
     }
 }

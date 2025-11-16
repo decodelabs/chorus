@@ -114,6 +114,7 @@ final class ChorusPackageUpdater
                 'dependencies' => $deps,
                 'location' => $exists ? ('https://github.com/' . $githubFullName) : null,
                 'notes' => isset($rowNorm['notes']) ? trim((string)$rowNorm['notes']) : null,
+                'cluster' => isset($rowNorm['cluster']) ? trim((string)$rowNorm['cluster']) : null,
             ];
 
             // Convert empty strings to null for nullable fields
@@ -122,6 +123,9 @@ final class ChorusPackageUpdater
             }
             if ($output['notes'] === '') {
                 $output['notes'] = null;
+            }
+            if ($output['cluster'] === '') {
+                $output['cluster'] = null;
             }
 
             $outputMap[$githubFullName] = $output;
