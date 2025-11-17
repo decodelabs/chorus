@@ -75,6 +75,8 @@ Guidelines & rules:
 
 - Examples MUST reflect real APIs.
 
+- Follow the coding standards defined in `docs/architecture/coding-standards.md` in the Chorus repo.
+
 Output:
 
 Produce the full `docs/meta/spec.md` file in Markdown.

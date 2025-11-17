@@ -69,7 +69,7 @@ Decode Labs uses **camelCase** for method names and variable names (including pa
 
 ### 2.3 Exceptions
 
-- **Constants**: Use `PascalCase` for class constants (e.g., `public const MaxRetries = 3`) - we don't need to keep shouting any more!!
+- **Constants** and **Enum case names**: Use `PascalCase` for class constants and enum case names (e.g., `public const MaxRetries = 3`) - we don't need to keep shouting any more!!
 - **Class names**: Use `PascalCase` (e.g., `UserProfile`, `RequestHandler`).
 
 ---
