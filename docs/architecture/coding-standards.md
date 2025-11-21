@@ -213,7 +213,355 @@ This aligns documentation, specs, and code and makes intent clearer to both huma
 
 ---
 
-## 7. Evolution of These Standards
+## 7. Interfaces and Traits
+
+### 7.1 Interface-Trait Pairing Pattern
+
+When an interface requires implementation, use a **trait** with the naming convention:
+
+- Interface: `Collection`
+- Trait: `CollectionTrait`
+
+The trait name is the interface name followed by `Trait`.
+
+Example:
+
+```php
+interface Collection
+{
+    public function isEmpty(): bool;
+    public function push(mixed ...$values): static;
+}
+
+trait CollectionTrait
+{
+    protected array $items = [];
+
+    public function isEmpty(): bool
+    {
+        return empty($this->items);
+    }
+
+    public function push(mixed ...$values): static
+    {
+        // Implementation
+    }
+}
+
+class Sequence implements Collection
+{
+    use CollectionTrait;
+}
+```
+
+### 7.2 Trait Requirements
+
+Traits should use PHPStan annotations to document interface requirements:
+
+```php
+/**
+ * @phpstan-require-implements Collection
+ */
+trait CollectionTrait
+{
+    // Implementation
+}
+```
+
+This helps static analysis tools understand the contract.
+
+### 7.3 When to Use Interfaces vs Abstract Classes
+
+- **Interfaces** for:
+  - Public contracts that multiple implementations may satisfy
+  - Type hints and dependency injection
+  - Defining the "shape" of an API
+
+- **Abstract classes** for:
+  - Shared implementation that cannot be expressed in traits
+  - When you need to control constructor behaviour
+  - When you need protected members that traits cannot provide
+
+- **Traits** for:
+  - Reusable implementation that can be mixed into multiple classes
+  - Implementation of interface contracts
+  - Cross-cutting concerns
+
+---
+
+## 8. Properties and Property Hooks (PHP 8.4+)
+
+### 8.1 Property Hooks
+
+Decode Labs uses PHP 8.4 property hooks extensively for:
+
+- Read-only properties with computed values
+- Properties with getters/setters that maintain invariants
+- Properties that need lazy initialization
+
+Example patterns:
+
+```php
+interface Node
+{
+    public string $path { get; }
+    public string $name { get; }
+}
+
+trait NodeTrait
+{
+    public string $name {
+        get => basename($this->path);
+    }
+}
+```
+
+### 8.2 Readonly Properties
+
+Use `readonly` for immutable data:
+
+```php
+class Frame
+{
+    public function __construct(
+        public readonly FunctionIdentifier $function,
+        public readonly ArgumentList $arguments,
+        public readonly ?Location $callSite = null,
+    ) {}
+}
+```
+
+### 8.3 Protected Set Access
+
+Use `protected(set)` for properties that should be readable publicly but only settable internally:
+
+```php
+class Config
+{
+    public protected(set) Config $config;
+    public protected(set) bool $local = false;
+}
+```
+
+### 8.4 Property Visibility
+
+- **Public properties**: For simple data that doesn't need encapsulation
+- **Protected properties**: For internal state that subclasses may need
+- **Private properties**: For truly internal implementation details
+
+---
+
+## 9. Static Factory Methods
+
+Static factory methods are preferred over constructors when:
+
+- The constructor would require complex setup
+- You need to return different types based on input
+- You want to provide named, self-documenting creation methods
+
+Naming conventions:
+
+- `create()` — Simple factory
+- `fromDebugBacktrace()` — Factory from specific source
+- `fromString()` — Factory from string representation
+- `fromArray()` — Factory from array data
+
+Example:
+
+```php
+class Frame
+{
+    public static function create(
+        int $rewind = 0
+    ): Frame {
+        // Factory implementation
+    }
+
+    public static function fromDebugBacktrace(
+        array $frame
+    ): self {
+        // Factory from specific source
+    }
+}
+```
+
+---
+
+## 10. PHPStan Configuration
+
+### 10.1 Standard Configuration
+
+All packages should use PHPStan with:
+
+- **Level**: `max` (preferred) or `9` (minimum)
+- **Paths**: Include both `src/` and `tests/` when tests exist
+- **Extensions**: Include `phpstan-extension.neon` if the package provides one
+
+Example `phpstan.neon`:
+
+```yaml
+includes:
+    - ./phpstan-extension.neon
+
+parameters:
+    paths:
+        - src/
+        - tests/
+    level: max
+```
+
+### 10.2 Generic Type Annotations
+
+Use PHPStan generics extensively for type safety:
+
+```php
+/**
+ * @template TKey
+ * @template TValue
+ * @template TIterate = TValue
+ * @phpstan-require-implements Collection<TKey,TValue,TIterate>
+ */
+trait CollectionTrait
+{
+    /**
+     * @var array<TKey,TValue>
+     */
+    protected array $items = [];
+}
+```
+
+### 10.3 PHPStan Suppressions
+
+Use `@phpstan-ignore-next-line` sparingly and only when:
+
+- PHPStan has a known bug
+- The code is correct but PHPStan cannot infer the type
+- Always document why the suppression is needed
+
+---
+
+## 11. File Structure and Headers
+
+### 11.1 File Header Format
+
+Every PHP file should start with:
+
+```php
+<?php
+
+/**
+ * {PackageName}
+ * @license https://opensource.org/licenses/MIT
+ */
+
+declare(strict_types=1);
+
+namespace DecodeLabs\{PackageNamespace};
+```
+
+### 11.2 Directory Structure
+
+- Follow PSR-4 autoloading conventions
+- Namespace structure should match directory structure
+- Use subdirectories for logical grouping (e.g., `Constraint/Array/`, `Processor/`)
+
+Example:
+
+```
+src/
+  Collections/
+    Collection.php          → DecodeLabs\Collections\Collection
+    CollectionTrait.php    → DecodeLabs\Collections\CollectionTrait
+    Sequence.php           → DecodeLabs\Collections\Sequence
+    SequenceTrait.php      → DecodeLabs\Collections\SequenceTrait
+```
+
+---
+
+## 12. Error Handling Patterns
+
+### 12.1 Exception Factory Pattern
+
+Use the `Exceptional` factory for creating exceptions:
+
+```php
+use DecodeLabs\Exceptional;
+
+throw Exceptional::NotFound(
+    message: 'Resource not found',
+    data: ['id' => $id]
+);
+
+throw Exceptional::UnexpectedValue(
+    message: 'Invalid value provided'
+);
+```
+
+### 12.2 Exception Types
+
+- Use specific exception types from the `exceptional` package
+- Avoid generic `Exception` or `RuntimeException` unless appropriate
+- Document which exceptions are part of the public API in package specs
+
+---
+
+## 13. ECS (Easy Coding Standard) Configuration
+
+### 13.1 Standard Configuration
+
+Most packages use ECS with:
+
+```php
+return ECSConfig::configure()
+    ->withPaths([
+        __DIR__ . '/src',
+        __DIR__ . '/tests'
+    ])
+    ->withPreparedSets(
+        cleanCode: true,
+        psr12: true
+    );
+```
+
+### 13.2 Common Skips
+
+Some packages skip `ProtectedToPrivateFixer`:
+
+```php
+->withSkip([
+    ProtectedToPrivateFixer::class
+]);
+```
+
+This is acceptable when protected visibility is intentionally used for extension points.
+
+---
+
+## 14. Testing Structure
+
+### 14.1 Test Organization
+
+- Tests should mirror the `src/` directory structure
+- Use PSR-4 autoloading for test classes
+- Test classes should be in a `Tests` namespace
+
+Example:
+
+```
+tests/
+  Collections/
+    CollectionTest.php  → DecodeLabs\Collections\Tests\CollectionTest
+```
+
+### 14.2 Test Coverage
+
+- Aim for high coverage of public APIs
+- Test edge cases and error conditions
+- Document test strategy in package specs
+
+---
+
+## 15. Evolution of These Standards
 
 These coding standards are expected to evolve as:
 
@@ -230,3 +578,4 @@ When in doubt:
 
 - Prefer **clarity and consistency**.
 - Align with PSR-12 unless this document (or a package spec) explicitly says otherwise.
+- Look at existing packages for examples of established patterns.

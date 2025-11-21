@@ -64,13 +64,82 @@ In short:
 > **Data** → properties where appropriate.
 > **Behaviour** → verbs.
 
+#### Examples from the Codebase
+
+**Properties for simple data:**
+```php
+// From remnant/src/Frame.php
+class Frame
+{
+    public readonly FunctionIdentifier $function;
+    public readonly ArgumentList $arguments;
+    public readonly ?Location $callSite;
+    public readonly ?Location $location;
+}
+```
+
+**Property hooks for computed values:**
+```php
+// From atlas/src/Atlas/NodeTrait.php
+trait NodeTrait
+{
+    public string $name {
+        get => basename($this->path);
+    }
+}
+```
+
+**Methods for behaviour:**
+```php
+// From collections/src/Collections/Collection.php
+interface Collection
+{
+    public function isEmpty(): bool;
+    public function push(mixed ...$values): static;
+    public function filter(?callable $callback = null): static;
+}
+```
+
 ### 2.3 Static Methods & Factory Patterns
 
 - Static methods should be used for **factories**, **lookups**, and **creation helpers**, not as pseudo-instance getters.
 - Good static method patterns:
-  - `fromString()`, `createDefault()`, `fetchFromConfig()`
+  - `fromString()`, `createDefault()`, `fetchFromConfig()`, `create()`
 - Avoid:
   - Static `getSomething()` methods that act like misplaced globals.
+
+#### Examples from the Codebase
+
+**Factory methods:**
+```php
+// From remnant/src/Frame.php
+class Frame
+{
+    public static function create(
+        int $rewind = 0
+    ): Frame {
+        // Factory implementation
+    }
+
+    public static function fromDebugBacktrace(
+        array $frame
+    ): self {
+        // Factory from specific source
+    }
+}
+```
+
+**Static lookups (when appropriate):**
+```php
+// From dovetail/src/Dovetail/ConfigTrait.php
+trait ConfigTrait
+{
+    public static function getRepositoryName(): string
+    {
+        return new ReflectionClass(static::class)->getShortName();
+    }
+}
+```
 
 ### 2.4 Clear Responsibility per Class
 
@@ -138,6 +207,50 @@ General rule of thumb:
 - Favour **specific exception types** over catch-all patterns.
 - Core libraries should document which exceptions form part of their public contract.
 - Avoid swallowing exceptions silently without explicit intent.
+
+### 5.1 Exception Factory Pattern
+
+Use the `Exceptional` factory for creating exceptions:
+
+```php
+use DecodeLabs\Exceptional;
+
+// From collections/src/Collections/CollectionTrait.php
+if (!static::Mutable) {
+    throw Exceptional::DomainException(
+        message: 'Cannot modify immutable collection'
+    );
+}
+
+// From collections/src/Collections/CollectionTrait.php
+throw Exceptional::UnexpectedValue(
+    message: 'Combine failed - key count does not match item count'
+);
+```
+
+### 5.2 Try* Pattern for Optional Returns
+
+Methods that may not return a value should use the `try*` naming pattern:
+
+```php
+// Pattern: trySomething() returns ?Type, something() throws
+public function tryResolve(
+    string $id,
+): ?Resource {
+    // Returns Resource or null
+}
+
+public function resolve(
+    string $id,
+): Resource {
+    return $this->tryResolve($id) ?? throw Exceptional::NotFound(
+        message: 'Resource not found',
+        data: ['id' => $id]
+    );
+}
+```
+
+This pattern makes the intent clear: `try*` methods are "safe" and return null, while non-`try*` methods guarantee a value or throw.
 
 ---
 
