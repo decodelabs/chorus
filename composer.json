@@ -11,10 +11,7 @@
     "require-dev": {
         "decodelabs/phpstan-decodelabs": "^0.7.0"
     },
-    "config": {
-        "allow-plugins": {
-            "phpstan/extension-installer": true
-        },
+    "extra": {
         "effigy": {
             "exports": [
                 "config",
@@ -22,6 +19,11 @@
                 "scripts",
                 "templates"
             ]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
         }
     }
 }
