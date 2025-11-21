@@ -9,6 +9,7 @@ This repository is the architectural and coordination layer for the Decode Labs 
 - `docs/decisions/` — ADRs and other cross-cutting decisions.
 - `docs/meta/` and `docs/workflows/` — process notes, specs, and AI/assistant workflows.
 - `scripts/` — maintenance utilities (currently `update-packages.php`).
+- `templates/` — templates for documentation and code generation - do not read these files as context
 
 ## Build, Test, and Development Commands
 

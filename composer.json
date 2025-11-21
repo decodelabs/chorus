@@ -1,0 +1,11 @@
+{
+    "name": "decodelabs/chorus",
+    "description": "Meta / architecture repository for Decode Labs",
+    "type": "library",
+    "keywords": [ "meta", "architecture", "documentation" ],
+    "license": "MIT",
+    "authors": [ {
+            "name": "Tom Wright",
+            "email": "tom@inflatablecookie.com"
+        } ]
+}
