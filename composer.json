@@ -7,5 +7,21 @@
     "authors": [ {
             "name": "Tom Wright",
             "email": "tom@inflatablecookie.com"
-        } ]
+        } ],
+    "require-dev": {
+        "decodelabs/phpstan-decodelabs": "^0.7.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        },
+        "effigy": {
+            "exports": [
+                "config",
+                "docs",
+                "scripts",
+                "templates"
+            ]
+        }
+    }
 }
