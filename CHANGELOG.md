@@ -5,9 +5,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Unreleased
+--
+
+---
+
+### [v0.1.3](https://github.com/decodelabs/chorus/commits/v0.1.3) - 1st December 2025
+
 - Improved AGENTS.md template and agent workflow
 - Added new feature specification workflow
 - Added feature specification template
+
+[Full list of changes](https://github.com/decodelabs/chorus/compare/v0.1.2...v0.1.3)
 
 ---
 
