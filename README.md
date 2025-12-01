@@ -60,12 +60,32 @@ Guidelines that define how Decode Labs packages should:
 - Introduce or evolve features
 - Interact with AI assistants, Cursor, and code generators
 
+### 5. Templates
+Standard templates for package documentation:
+- README templates
+- Package specification templates
+- Feature specification templates
+- Change specification templates
+- AGENTS.md templates
+
+**Note:** Templates live in Chorus, but the actual specs and documentation created from these templates live in their respective package repositories.
+
+### 6. Change Specs
+Meta-level change specifications that describe ecosystem-wide behavioural changes and migration plans:
+- Located in `docs/meta/releases/<package>/...`
+- Coordinate changes across multiple repositories
+- Define migration strategies for libraries, frameworks, and client projects
+
+**Note:** Change Specs live in Chorus because they coordinate ecosystem-wide migrations. Package-specific implementation specs (package specs and feature specs) live in package repositories.
+
 ---
 
 ## What Chorus Does *Not* Contain
 
 - **Runtime code**
-- **User-facing package documentation**
+- **Package-specific implementation specs** (package specs live in `docs/meta/spec.md` in each package repo)
+- **Feature specs** (live in `docs/meta/features/` in each package repo)
+- **User-facing package documentation** (READMEs, usage examples, etc.)
 - **Tests**
 - **Implementations**
 

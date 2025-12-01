@@ -37,19 +37,25 @@ The single source of truth is:
 # 2. Roles of Repositories
 
 ### 2.1 Chorus (Meta / Architecture)
-- The “air traffic control tower”.
+- The "air traffic control tower".
 - Holds:
   - Architecture principles  
   - Package taxonomy  
   - Coding standards  
-  - Templates  
+  - Templates (for README, package-spec, feature-spec, change-spec, AGENTS)  
   - AGENTS workflow descriptions  
-  - Change specs  
+  - **Change specs** (meta-level, migration-focused documents)  
   - Release notes & migration strategy documents  
+- **Chorus is meta-only**: it does NOT store package-specific implementation specs.
 - All changes originate here, not in code.
 
 ### 2.2 DecodeLabs Libraries
 - Self-contained, high-quality libraries.
+- Each library repository contains:
+  - Implementation code
+  - **Package specs** (`docs/meta/spec.md`) — detailed package specification
+  - **Feature specs** (`docs/meta/features/*.md`) — detailed feature designs
+  - README and other package-specific documentation
 - No cross-repo edits allowed.
 - Updated only according to a documented change spec.
 
@@ -75,8 +81,11 @@ Every behavioural or public API change follows this pipeline.
 
 1. Create a **Change Spec** inside Chorus:  
    `docs/meta/releases/<package>/<YYYY-MM-DD>-<slug>.md`  
-   or  
-   a Feature Spec in `docs/meta/features/`.
+   
+   **Note:** Change Specs live in Chorus because they describe ecosystem-wide migration plans and behavioural changes that span multiple repositories.
+   
+   For detailed feature designs that are package-specific, create a **Feature Spec** in the target package repository:  
+   `<package-repo>/docs/meta/features/<feature-name>.md`
 
 2. The change spec MUST include:
    - Problem being solved  
@@ -116,7 +125,8 @@ Rules:
 - Update:
   - Code
   - Tests
-  - `docs/meta/spec.md`
+  - `docs/meta/spec.md` (package specification in the package repo)
+  - Feature specs in `docs/meta/features/` (if applicable, in the package repo)
   - README (if needed)
   - `CHANGELOG.md`
   - Composer version bump per SemVer
@@ -143,7 +153,7 @@ Frameworks depend heavily on library internals.
 
 Workflow:
 
-1. AI analyses the framework’s usage of the modified library APIs.
+1. AI analyses the framework's usage of the modified library APIs.
 2. AI categorises changes:  
    - trivial rename  
    - signature shifts  
@@ -230,10 +240,14 @@ AI **may not**:
 
 All behavioural changes and migration decisions must be recorded in:
 
-- **Chorus change specs**  
-- **Library specs (`docs/meta/spec.md`)**  
-- **Feature specs (`docs/meta/features/`)**  
-- **Release notes**  
+- **Change Specs in Chorus** (`docs/meta/releases/<package>/...`) — meta-level migration plans  
+- **Package Specs in package repos** (`<package-repo>/docs/meta/spec.md`) — detailed package specifications  
+- **Feature Specs in package repos** (`<package-repo>/docs/meta/features/*.md`) — detailed feature designs  
+- **Release notes** (in package repos or Chorus as appropriate)
+
+**Important distinction:**
+- **Change Specs** live in Chorus because they coordinate ecosystem-wide migrations and behavioural changes across multiple repositories.
+- **Package Specs** and **Feature Specs** live in their respective package repositories because they describe implementation details specific to each package.
 
 This ensures:
 
@@ -256,7 +270,8 @@ If ever the process becomes unclear, agents MUST fall back to this document.
 **Implement in library**  
 ☐ Follow coding standards  
 ☐ Add deprecations  
-☐ Update specs  
+☐ Update package spec (`docs/meta/spec.md` in package repo)  
+☐ Update feature specs if applicable (`docs/meta/features/` in package repo)  
 ☐ Write tests  
 ☐ Bump version
 
@@ -304,4 +319,3 @@ If other docs are incomplete or missing, agents must use this to reconstruct:
 - how to minimise risk in live systems  
 
 This document ensures consistency across the entire ecosystem — even if other artefacts fall out of sync.
-

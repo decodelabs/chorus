@@ -35,7 +35,7 @@ Before making changes in ANY DecodeLabs repository:
 ### 2.1 Always Read This File
 This is the global behaviour contract.
 
-### 2.2 Read the Package’s Local Files
+### 2.2 Read the Package's Local Files
 In the target repo, always read:
 
 - `AGENTS.md` (bootstrap only)  
@@ -44,7 +44,7 @@ In the target repo, always read:
 - any relevant feature specs in `docs/meta/features/`  
 - any local `docs/` content  
 
-These describe the package’s purpose and public surface.
+These describe the package's purpose and public surface.
 
 ### 2.3 Locate Chorus for Global Rules
 Every package depends on Chorus.
@@ -78,9 +78,51 @@ These apply to *every* package.
 
 ---
 
-# 3. Architectural Rules for AI Agents
+# 3. Chorus vs Package Repository Responsibilities
 
-## 3.1 Single-Repository Rule
+**Critical distinction:** Chorus is **meta-only**. It does NOT store package-specific implementation specs.
+
+### 3.1 What Lives in Chorus
+
+Chorus contains:
+
+- **Architecture documentation** — principles, taxonomy, coding standards
+- **Templates** — for README, package-spec, feature-spec, change-spec, AGENTS
+- **Change Specs** — meta-level documents describing ecosystem-wide behavioural changes and migration plans (`docs/meta/releases/<package>/...`)
+- **Workflows** — AI integration workflows, ecosystem analysis procedures
+- **Ecosystem metadata** — `config/packages.json` (index of all packages)
+- **Decision records (ADRs)** — cross-cutting architectural decisions
+
+Chorus is the **architectural and coordination layer**, not a storage location for per-package implementation details.
+
+### 3.2 What Lives in Package Repositories
+
+Each DecodeLabs package repository contains:
+
+- **Implementation code** — the actual library code
+- **Package Spec** (`docs/meta/spec.md`) — detailed specification of the package's purpose, public surface, contracts, and behaviour
+- **Feature Specs** (`docs/meta/features/*.md`) — detailed designs for specific features within the package
+- **README.md** — package overview and usage examples
+- **Tests** — all test code
+- **CHANGELOG.md** — package-specific release notes
+
+**Package specs and feature specs live in package repos because they describe implementation details specific to each package.**
+
+### 3.3 Why This Separation Matters
+
+- **Chorus** coordinates ecosystem-wide changes and provides reusable templates.
+- **Package repos** document their own implementation details and public APIs.
+- This separation ensures:
+  - Chorus remains focused on meta concerns
+  - Package repos own their documentation
+  - No confusion about where to find or update specs
+  - Clear boundaries for AI agents
+
+---
+
+# 4. Architectural Rules for AI Agents
+
+## 4.1 Single-Repository Rule
 
 **An agent may only modify one repository at a time.**
 
@@ -95,7 +137,7 @@ If a change spans multiple repos, document it in Chorus and wait for human instr
 
 ---
 
-## 3.2 Behaviour When Unsure
+## 4.2 Behaviour When Unsure
 
 If any of the following are unclear:
 
@@ -125,7 +167,7 @@ Then the agent must:
 
 ---
 
-## 3.3 Allowed vs Forbidden Actions
+## 4.3 Allowed vs Forbidden Actions
 
 ### Allowed
 
@@ -149,7 +191,7 @@ Then the agent must:
 
 ---
 
-# 4. Code Quality Expectations (Ecosystem-Wide)
+# 5. Code Quality Expectations (Ecosystem-Wide)
 
 DecodeLabs libraries must maintain **exceptional** quality.
 
@@ -182,9 +224,9 @@ Full details are in `coding-standards.md`.
 
 ---
 
-# 5. Coding Standards Summary (See Full Details in `coding-standards.md`)
+# 6. Coding Standards Summary (See Full Details in `coding-standards.md`)
 
-### 5.1 Method Signatures
+### 6.1 Method Signatures
 
 If parameters exist:
 
@@ -204,12 +246,12 @@ public function reset(): void
 }
 ```
 
-### 5.2 Nullable Return Pattern
+### 6.2 Nullable Return Pattern
 
 - `tryGetThing(): ?Thing`  
 - `getThing(): Thing` (throws if not found)
 
-### 5.3 Properties vs Methods
+### 6.3 Properties vs Methods
 
 Prefer:
 
@@ -224,21 +266,21 @@ getId();
 setId();
 ```
 
-### 5.4 Traits and Interfaces
+### 6.4 Traits and Interfaces
 
 - Traits mirror related interfaces  
 - Trait names end in `Trait`  
 - Interfaces end in `Interface`  
 - Keep responsibilities narrow
 
-### 5.5 Files, Namespaces, and Classes
+### 6.5 Files, Namespaces, and Classes
 
 - One class/interface/trait per file  
 - Namespaces reflect architecture clusters  
 - Avoid deep inheritance  
 - Prefer composition
 
-### 5.6 php-cs-fixer baseline
+### 6.6 php-cs-fixer baseline
 
 ```
 @PSR12,-method_argument_space,array_syntax
@@ -246,13 +288,13 @@ setId();
 
 ---
 
-# 6. Documentation Expectations
+# 7. Documentation Expectations
 
 All packages must maintain:
 
 - `README.md`
-- `docs/meta/spec.md`
-- Additional feature specs in `docs/meta/features/` if needed
+- `docs/meta/spec.md` (package specification — in the package repo)
+- Additional feature specs in `docs/meta/features/` if needed (in the package repo)
 - Accurate docblocks where useful (especially for generics)
 - Clear examples of usage
 - Inline TODOs for unresolved behaviour
@@ -267,7 +309,7 @@ If a template is missing, mimic existing standards.
 
 ---
 
-# 7. Change Management & Migration Coordination
+# 8. Change Management & Migration Coordination
 
 This entire ecosystem operates under a **versioned change pipeline** described in:
 
@@ -275,8 +317,8 @@ This entire ecosystem operates under a **versioned change pipeline** described i
 
 All behavioural changes must originate from Chorus via:
 
-- **Change Specs** (`docs/templates/change-spec.md`)  
-- **Feature Specs** (`docs/templates/feature-spec.md`)  
+- **Change Specs** (in Chorus: `docs/meta/releases/<package>/...`) — meta-level migration plans  
+- **Feature Specs** (templates in Chorus: `docs/templates/feature-spec.md`, but actual specs live in package repos: `<package-repo>/docs/meta/features/...`)
 
 Agents implementing code must:
 
@@ -295,7 +337,7 @@ is handled in separate phases and **must not** be performed automatically unless
 
 ---
 
-# 8. Template Usage
+# 9. Template Usage
 
 Chorus provides templates for:
 
@@ -308,7 +350,8 @@ Chorus provides templates for:
 Agents should:
 
 - Use them when creating new files  
-- Update them only in Chorus  
+- Update templates only in Chorus  
+- Create actual specs/docs in package repos (not in Chorus)  
 - Avoid deviating from structure without permission  
 
 If a template does not exist:
@@ -318,7 +361,7 @@ If a template does not exist:
 
 ---
 
-# 9. Error Handling for Agents
+# 10. Error Handling for Agents
 
 If an agent encounters missing, contradictory, or ambiguous information:
 
@@ -335,16 +378,16 @@ Do NOT:
 
 ---
 
-# 10. Final Checklist for Any Agent
+# 11. Final Checklist for Any Agent
 
 Before acting:
 
 - [ ] Found Chorus (sibling/vendor/remote)  
 - [ ] Read this guide  
 - [ ] Read package README  
-- [ ] Read package spec  
+- [ ] Read package spec (in package repo: `docs/meta/spec.md`)  
 - [ ] Confirmed task is one-repo only  
-- [ ] Identified relevant template(s)  
+- [ ] Identified relevant template(s) (in Chorus)  
 - [ ] Confirmed SemVer constraints  
 - [ ] Confirmed behavioural scope  
 - [ ] Validated no conflicting rules  
@@ -360,12 +403,12 @@ While acting:
 
 After acting:
 
-- [ ] Updated docs (spec/test/README where needed)  
+- [ ] Updated docs (spec/test/README where needed — in package repo)  
 - [ ] Ensured code remains readable, consistent, and safe  
 
 ---
 
-# 11. Purpose of Having This Central File
+# 12. Purpose of Having This Central File
 
 This file:  
 
@@ -380,9 +423,8 @@ Every per-repo AGENTS.md now simply redirects to Chorus + explains the single-re
 
 ---
 
-# 12. If Anything Becomes Unclear
+# 13. If Anything Becomes Unclear
 
 Agents must **stop**, ask for clarification, or leave a TODO.
 
 This document is the fallback that guarantees safety even if other repo docs drift.
-
